@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1736665200001",
+    "title": "Harbor View Residences",
+    "description": "300-unit luxury waterfront residential development featuring modern amenities, rooftop gardens, and stunning harbor views. Includes underground parking, fitness center, and community spaces.",
+    "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    "category": "Residential",
+    "location": "San Francisco, CA",
+    "completionDate": "2024-06-15"
+  },
+  {
+    "id": "1736665200002",
+    "title": "Skyline Corporate Tower",
+    "description": "500,000 sq ft mixed-use development with Class A office space, retail, and dining. Features energy-efficient design, smart building technology, and LEED Platinum certification.",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+    "category": "Commercial",
+    "location": "New York, NY",
+    "completionDate": "2023-11-20"
+  },
+  {
+    "id": "1736665200003",
+    "title": "Metropolitan Transit Center",
+    "description": "250,000 sq ft multimodal transportation hub connecting bus, rail, and light rail systems. Includes retail spaces, public plaza, and sustainable design features.",
+    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
+    "category": "Infrastructure",
+    "location": "Chicago, IL",
+    "completionDate": "2024-03-10"
+  },
+  {
+    "id": "1736665200004",
+    "title": "Riverside Medical Center",
+    "description": "180,000 sq ft state-of-the-art healthcare facility with emergency department, surgical suites, and outpatient services. Advanced MEP systems and patient-centered design.",
+    "image": "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&q=80",
+    "category": "Healthcare",
+    "location": "Portland, OR",
+    "completionDate": "2024-08-25"
+  },
+  {
+    "id": "1736665200005",
+    "title": "Tech Innovation Campus",
+    "description": "450,000 sq ft technology campus with collaborative workspaces, research labs, and innovation center. Sustainable design with solar panels and green building practices.",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    "category": "Commercial",
+    "location": "Austin, TX",
+    "completionDate": "2023-09-30"
+  },
+  {
+    "id": "1736665200006",
+    "title": "University Science Complex",
+    "description": "120,000 sq ft academic building with modern classrooms, research laboratories, and student collaboration areas. Incorporates sustainable materials and advanced HVAC systems.",
+    "image": "https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80",
+    "category": "Education",
+    "location": "Boston, MA",
+    "completionDate": "2023-12-15"
+  }
+]

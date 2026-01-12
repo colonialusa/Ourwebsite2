@@ -1,0 +1,194 @@
+[
+  {
+    "id": "1736665300001",
+    "title": "Site Planning & Development",
+    "description": "Comprehensive site planning services that transform concepts into reality. Our expert team delivers innovative solutions for residential, commercial, and industrial developments, ensuring optimal land use and sustainable design practices.",
+    "icon": "📐",
+    "features": [
+      "Topographic Surveys & Site Analysis",
+      "Grading & Drainage Design",
+      "Utility Infrastructure Planning",
+      "Environmental Impact Assessment",
+      "Zoning Compliance & Permitting Support",
+      "Master Planning for Large Developments",
+      "Cost Estimation & Budget Planning",
+      "Construction Documentation"
+    ],
+    "detailedInfo": {
+      "overview": "Our site planning services encompass the complete development process from initial concept to final construction. We analyze topography, environmental constraints, and regulatory requirements to create efficient, sustainable, and cost-effective site designs.",
+      "process": [
+        "Initial Site Assessment & Feasibility Study",
+        "Conceptual Design Development",
+        "Detailed Engineering & Design",
+        "Regulatory Approval & Permitting",
+        "Construction Support & Supervision"
+      ],
+      "benefits": [
+        "Reduced development costs through optimized design",
+        "Faster permit approval with compliant plans",
+        "Sustainable solutions that minimize environmental impact",
+        "Enhanced property value through thoughtful planning"
+      ]
+    }
+  },
+  {
+    "id": "1736665300002",
+    "title": "Architectural Design Services",
+    "description": "Award-winning architectural design that combines aesthetic excellence with functional efficiency. We create inspiring spaces for commercial, residential, and institutional projects that reflect your vision and exceed expectations.",
+    "icon": "🏛️",
+    "features": [
+      "Conceptual Design & 3D Visualization",
+      "Schematic Design Development",
+      "Construction Documents & Specifications",
+      "Interior Space Planning & Design",
+      "Sustainable & Green Building Design",
+      "Renovation & Adaptive Reuse",
+      "Building Code Compliance Review",
+      "Value Engineering & Cost Optimization"
+    ],
+    "detailedInfo": {
+      "overview": "Our architectural team brings decades of combined experience in creating spaces that inspire. From initial sketches to final construction documents, we ensure every detail aligns with your vision, budget, and sustainability goals.",
+      "specialties": [
+        "Commercial Office Buildings",
+        "Multi-Family Residential Complexes",
+        "Healthcare Facilities",
+        "Educational Institutions",
+        "Mixed-Use Developments"
+      ],
+      "deliverables": [
+        "3D Renderings & Virtual Walkthroughs",
+        "Detailed Floor Plans & Elevations",
+        "Material & Finish Specifications",
+        "Construction Administration Support"
+      ]
+    }
+  },
+  {
+    "id": "1736665300003",
+    "title": "BIM Services & 3D Modeling",
+    "description": "Advanced Building Information Modeling (BIM) services that revolutionize project delivery. Our BIM experts create intelligent 3D models that improve collaboration, reduce errors, and accelerate construction timelines for projects of all scales.",
+    "icon": "🏗️",
+    "features": [
+      "Architectural BIM Modeling (Revit, ArchiCAD)",
+      "Structural BIM Coordination",
+      "MEP Systems Integration",
+      "4D Construction Sequencing",
+      "5D Cost Estimation & Quantity Takeoffs",
+      "Clash Detection & Coordination",
+      "As-Built BIM Documentation",
+      "Virtual Reality (VR) & Augmented Reality (AR) Experiences"
+    ],
+    "detailedInfo": {
+      "overview": "Leverage the power of BIM to transform your construction projects. Our comprehensive BIM services provide a single source of truth for all project stakeholders, enabling better decision-making and dramatically reducing costly conflicts during construction.",
+      "technologies": [
+        "Autodesk Revit & AutoCAD",
+        "Navisworks for Clash Detection",
+        "BIM 360 for Cloud Collaboration",
+        "Dynamo for Automation",
+        "Unity & Unreal Engine for VR/AR"
+      ],
+      "advantages": [
+        "Up to 40% reduction in coordination issues",
+        "Faster design iterations and approvals",
+        "Accurate quantity takeoffs and cost control",
+        "Enhanced stakeholder communication with 3D visualizations"
+      ]
+    }
+  },
+  {
+    "id": "1736665300004",
+    "title": "MEP Engineering Design",
+    "description": "Comprehensive Mechanical, Electrical, and Plumbing engineering solutions that ensure building systems operate efficiently and reliably. Our MEP engineers design sustainable, code-compliant systems optimized for performance and lifecycle costs.",
+    "icon": "⚡",
+    "features": [
+      "HVAC System Design & Analysis",
+      "Electrical Power Distribution & Lighting",
+      "Plumbing & Fire Protection Systems",
+      "Energy Modeling & Sustainability Analysis",
+      "Building Automation & Controls Integration",
+      "Load Calculations & Equipment Sizing",
+      "Code Compliance & Safety Reviews",
+      "Commissioning Support & Quality Assurance"
+    ],
+    "detailedInfo": {
+      "overview": "Our MEP engineering team delivers integrated building systems that maximize comfort, efficiency, and reliability. From concept through commissioning, we ensure every system is designed for optimal performance and maintainability.",
+      "services": [
+        "HVAC: Climate control, ventilation, and air quality systems",
+        "Electrical: Power distribution, lighting design, emergency systems",
+        "Plumbing: Water supply, drainage, and fire protection",
+        "Controls: Smart building automation and energy management"
+      ],
+      "expertise": [
+        "LEED & Green Building Certification Support",
+        "Energy-efficient system design",
+        "Renewable energy integration (solar, geothermal)",
+        "Life-cycle cost analysis and value engineering"
+      ]
+    }
+  },
+  {
+    "id": "1736665300005",
+    "title": "Road & Infrastructure Design",
+    "description": "Expert civil engineering for transportation infrastructure projects. We design safe, efficient, and sustainable roadways, highways, and urban infrastructure that serve communities for generations while minimizing environmental impact.",
+    "icon": "🛣️",
+    "features": [
+      "Highway & Roadway Design",
+      "Traffic Engineering & Signal Design",
+      "Intersection & Interchange Design",
+      "Pavement Design & Analysis",
+      "Drainage Systems & Stormwater Management",
+      "Bridge & Culvert Design",
+      "Pedestrian & Bicycle Infrastructure",
+      "ADA Compliance & Accessibility Planning"
+    ],
+    "detailedInfo": {
+      "overview": "From local streets to major highways, our infrastructure team designs transportation solutions that enhance mobility, safety, and quality of life. We combine technical excellence with innovative approaches to address complex challenges.",
+      "capabilities": [
+        "Corridor studies and alignment design",
+        "Traffic impact analysis and mitigation",
+        "Complete streets and multimodal planning",
+        "Intelligent Transportation Systems (ITS)",
+        "Construction phasing and maintenance of traffic plans"
+      ],
+      "standards": [
+        "AASHTO Design Guidelines",
+        "State DOT Standards and Specifications",
+        "Manual on Uniform Traffic Control Devices (MUTCD)",
+        "ADA and accessibility requirements"
+      ]
+    }
+  },
+  {
+    "id": "1736665300006",
+    "title": "BIM Consulting & Implementation",
+    "description": "Strategic BIM consulting services that help organizations maximize their return on technology investment. From BIM strategy development to staff training and workflow optimization, we guide your transition to efficient digital project delivery.",
+    "icon": "🎯",
+    "features": [
+      "BIM Strategy & Implementation Planning",
+      "BIM Execution Plan (BEP) Development",
+      "Staff Training & Capacity Building",
+      "Template & Standards Development",
+      "Workflow Optimization & Automation",
+      "Software Selection & IT Infrastructure",
+      "Quality Assurance & Model Auditing",
+      "Change Management & Support"
+    ],
+    "detailedInfo": {
+      "overview": "Transform your organization with our proven BIM implementation methodology. We've helped dozens of firms successfully adopt BIM, achieving measurable improvements in productivity, quality, and profitability.",
+      "consulting": [
+        "BIM Readiness Assessment",
+        "Technology Stack Recommendations",
+        "Custom BIM Standards & Protocols",
+        "Pilot Project Planning & Support",
+        "ROI Analysis & Performance Metrics"
+      ],
+      "training": [
+        "Software Training (Revit, Navisworks, BIM 360)",
+        "Workflow Best Practices",
+        "Clash Detection & Coordination",
+        "Cloud Collaboration Platforms",
+        "Ongoing Technical Support"
+      ]
+    }
+  }
+]
