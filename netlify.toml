@@ -1,8 +1,29 @@
 [build]
-  command = "npm run build:client"
+  command = "pnpm run build"
   functions = "netlify/functions"
   publish = "dist/spa"
 
+# Enable faster builds
+[build.environment]
+  NODE_VERSION = "18"
+
+# Optimize asset processing
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
 
 [functions]
   external_node_modules = ["express"]
@@ -13,3 +34,8 @@
   from = "/api/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,9 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, lazy, Suspense, useEffect, useRef } from "react";
-import ServicesModal from "@/components/ServicesModal";
-import FrameScrollAnimation from "@/components/FrameScrollAnimation";
-import SiteVisitCarousel from "@/components/SiteVisitCarousel";
-import ChatBot from "@/components/ChatBot";
+
+// Lazy load all heavy components for better initial load performance
+const ServicesModal = lazy(() => import("@/components/ServicesModal"));
+const FrameScrollAnimation = lazy(() => import("@/components/FrameScrollAnimation"));
+const SiteVisitCarousel = lazy(() => import("@/components/SiteVisitCarousel"));
+const ChatBot = lazy(() => import("@/components/ChatBot"));
+const BuildingModel = lazy(() => import("@/components/BuildingModel"));
 
 // Counter animation hook
 function useCountUp(end: number, duration: number = 2000, suffix: string = "") {
@@ -59,8 +62,7 @@ function useCountUp(end: number, duration: number = 2000, suffix: string = "") {
   return { count, ref, displayValue: `${count}${suffix}` };
 }
 
-// Lazy load heavy components
-const BuildingModel = lazy(() => import("@/components/BuildingModel"));
+
 
 interface Service {
   id: string;
