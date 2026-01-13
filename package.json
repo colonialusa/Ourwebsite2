@@ -18,8 +18,7 @@
     "start": "node dist/server/node-build.mjs",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
-    "typecheck": "tsc",
-    "vercel-build": "vite build"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@vercel/node": "^3.2.22",
