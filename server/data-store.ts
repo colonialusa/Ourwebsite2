@@ -1,14 +1,25 @@
 // Embedded data for Vercel deployment (serverless functions don't have persistent file storage)
 // For write operations, you'll need to integrate a database (Vercel KV, MongoDB, etc.)
 
-import projectsData from '../data/projects.json';
-import servicesData from '../data/services.json';
-import contactsData from '../data/contacts.json';
+import * as fs from 'fs';
+import * as path from 'path';
+
+// Read JSON files at module load time
+const readJsonFile = (filename: string) => {
+  try {
+    const filePath = path.join(process.cwd(), 'data', filename);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(fileContent);
+  } catch (error) {
+    console.error(`Failed to read ${filename}:`, error);
+    return [];
+  }
+};
 
 // In-memory storage (resets on each serverless function cold start)
-let projects = [...projectsData];
-let services = [...servicesData];
-let contacts = [...contactsData];
+let projects = readJsonFile('projects.json');
+let services = readJsonFile('services.json');
+let contacts = readJsonFile('contacts.json');
 
 export const dataStore = {
   // Projects
