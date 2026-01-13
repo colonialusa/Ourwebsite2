@@ -1,6 +1,66 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+
+// Counter animation hook
+function useCountUp(end: number, duration: number = 2000, suffix: string = "") {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const startTime = Date.now();
+    const animate = () => {
+      const now = Date.now();
+      const progress = Math.min((now - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const current = Math.floor(easeOutQuart * end);
+      
+      setCount(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, end, duration]);
+
+  return { count, ref, displayValue: `${count}${suffix}` };
+}
 
 export default function About() {
+  const projectsCounter = useCountUp(500, 2000, "+");
+  const teamCounter = useCountUp(50, 2000, "+");
+  const yearsCounter = useCountUp(15, 2000, "+");
+  const satisfactionCounter = useCountUp(95, 2000, "%");
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -67,38 +127,65 @@ export default function About() {
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <div className="text-colonial-blue font-bold text-sm tracking-[2px] mb-4">OUR STORY</div>
+              <div className="text-colonial-blue font-bold text-sm tracking-[2px] mb-4">ABOUT US</div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-colonial-navy mb-6">
-                Building Excellence Since 2010
+                About Colonial Consultants
               </h2>
               <div className="space-y-4 text-lg text-colonial-gray leading-relaxed">
                 <p>
-                  Founded with a vision to transform the engineering consulting landscape, Colonial Consultants has grown from a small team of dedicated professionals into a trusted partner for major projects across multiple industries.
+                  Colonial Consultants is built on an old-school idea. Do what you say you'll do, stand behind your work, and treat relationships like they matter.
                 </p>
                 <p>
-                  Our journey began with a simple belief: that exceptional engineering requires more than technical expertise—it demands creativity, collaboration, and an unwavering commitment to client success.
+                  We support land development projects with a simple goal: move work forward with fewer surprises. That means clear scope, clean deliverables, and communication that doesn't disappear when things get messy. We bring 10 years of civil engineering experience and 8 years of delivery-focused support, backed by licensed professional engineers, and we stay engaged through comment responses and closeout so projects don't stall at the finish line.
                 </p>
-                <p>
-                  Today, we bring together cutting-edge BIM technology, multidisciplinary expertise, and a people-first approach to deliver solutions that don't just meet expectations—they exceed them.
-                </p>
+              </div>
+
+              {/* Additional Info Sections */}
+              <div className="mt-8 space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold text-colonial-navy mb-2">
+                    Local field support. Williamsburg and surrounding area
+                  </h3>
+                  <p className="text-base text-colonial-gray leading-relaxed">
+                    Site work support, coordination, punchlist completion, and fine grading across large areas.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-colonial-navy mb-2">
+                    Nationwide engineering support. Remote friendly
+                  </h3>
+                  <p className="text-base text-colonial-gray leading-relaxed">
+                    Land development documentation and analysis, including survey data post-processing, plan set support, traffic impact support, turn lane warrant evaluations, and parking demand studies.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-colonial-navy mb-2">
+                    Professional responsibility
+                  </h3>
+                  <p className="text-base text-colonial-gray leading-relaxed">
+                    Our work is supported by licensed professional engineers. When sealing is required, plans and calculations are prepared and sealed by appropriately licensed professionals.
+                  </p>
+                </div>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-colonial-blue/5 p-8 rounded-[20px] border border-colonial-border">
-                <div className="text-5xl font-bold text-colonial-navy mb-2">500+</div>
+              <div ref={projectsCounter.ref} className="bg-colonial-blue/5 p-8 rounded-[20px] border border-colonial-border">
+                <div className="text-5xl font-bold text-colonial-navy mb-2">{projectsCounter.displayValue}</div>
                 <div className="text-colonial-gray">Projects Completed</div>
               </div>
-              <div className="bg-colonial-gold/5 p-8 rounded-[20px] border border-colonial-border">
-                <div className="text-5xl font-bold text-colonial-navy mb-2">50+</div>
+              <div ref={teamCounter.ref} className="bg-colonial-gold/5 p-8 rounded-[20px] border border-colonial-border">
+                <div className="text-5xl font-bold text-colonial-navy mb-2">{teamCounter.displayValue}</div>
                 <div className="text-colonial-gray">Expert Team Members</div>
               </div>
-              <div className="bg-colonial-purple/5 p-8 rounded-[20px] border border-colonial-border">
-                <div className="text-5xl font-bold text-colonial-navy mb-2">15+</div>
+              <div ref={yearsCounter.ref} className="bg-colonial-purple/5 p-8 rounded-[20px] border border-colonial-border">
+                <div className="text-5xl font-bold text-colonial-navy mb-2">{yearsCounter.displayValue}</div>
                 <div className="text-colonial-gray">Years Experience</div>
               </div>
-              <div className="bg-colonial-green/5 p-8 rounded-[20px] border border-colonial-border">
-                <div className="text-5xl font-bold text-colonial-navy mb-2">95%</div>
+              <div ref={satisfactionCounter.ref} className="bg-colonial-green/5 p-8 rounded-[20px] border border-colonial-border">
+                <div className="text-5xl font-bold text-colonial-navy mb-2">{satisfactionCounter.displayValue}</div>
                 <div className="text-colonial-gray">Client Satisfaction</div>
               </div>
             </div>

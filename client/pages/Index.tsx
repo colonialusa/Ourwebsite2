@@ -1,7 +1,63 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState, lazy, Suspense, useEffect } from "react";
+import { useState, lazy, Suspense, useEffect, useRef } from "react";
 import ServicesModal from "@/components/ServicesModal";
 import FrameScrollAnimation from "@/components/FrameScrollAnimation";
+import SiteVisitCarousel from "@/components/SiteVisitCarousel";
+import ChatBot from "@/components/ChatBot";
+
+// Counter animation hook
+function useCountUp(end: number, duration: number = 2000, suffix: string = "") {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const startTime = Date.now();
+    const animate = () => {
+      const now = Date.now();
+      const progress = Math.min((now - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const current = Math.floor(easeOutQuart * end);
+      
+      setCount(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, end, duration]);
+
+  return { count, ref, displayValue: `${count}${suffix}` };
+}
 
 // Lazy load heavy components
 const BuildingModel = lazy(() => import("@/components/BuildingModel"));
@@ -27,6 +83,12 @@ interface Project {
 export default function Index() {
   const navigate = useNavigate();
   const [isExpertiseModalOpen, setIsExpertiseModalOpen] = useState(false);
+  
+  // Counter animations for stats
+  const projectsCounter = useCountUp(500, 2000, "+");
+  const yearsCounter = useCountUp(15, 2000, "+");
+  const satisfactionCounter = useCountUp(95, 2000, "%");
+  const teamCounter = useCountUp(50, 2000, "+");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [services, setServices] = useState<Service[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
@@ -40,19 +102,18 @@ export default function Index() {
   });
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  // Fetch services and projects from API
+  // Fetch services and projects from API with optimization
   useEffect(() => {
-    // Fetch services (public endpoint - no auth needed)
-    fetch('/api/services')
-      .then(res => res.json())
-      .then(data => setServices(data.slice(0, 6))) // Show first 6 services
-      .catch(err => console.error('Failed to fetch services:', err));
-
-    // Fetch projects (public endpoint - no auth needed)
-    fetch('/api/projects')
-      .then(res => res.json())
-      .then(data => setProjects(data.slice(0, 3))) // Show first 3 projects
-      .catch(err => console.error('Failed to fetch projects:', err));
+    // Use Promise.all to load data in parallel for faster initial load
+    Promise.all([
+      fetch('/api/services').then(res => res.json()),
+      fetch('/api/projects').then(res => res.json())
+    ])
+      .then(([servicesData, projectsData]) => {
+        setServices(servicesData.slice(0, 6)); // Show first 6 services
+        setProjects(projectsData.slice(0, 3)); // Show first 3 projects
+      })
+      .catch(err => console.error('Failed to fetch data:', err));
   }, []);
 
   // Keyboard shortcut to open admin panel (Ctrl + Shift + A)
@@ -106,14 +167,15 @@ export default function Index() {
         onClose={() => setIsExpertiseModalOpen(false)} 
       />
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 lg:px-12 xl:px-[50px] pt-4 md:pt-6 lg:pt-[30px]">
-        <div className="mx-auto max-w-[1820px] h-[60px] md:h-[70px] lg:h-[80px] rounded-[30px] md:rounded-[35px] lg:rounded-[40px] border border-colonial-border bg-white flex items-center justify-between px-4 md:px-6 lg:px-8">
+      {/* Header - Fixed with highest z-index to ensure it's always on top */}
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 lg:px-12 xl:px-[50px] pt-4 md:pt-6 lg:pt-[30px] pointer-events-none">
+        <div className="mx-auto max-w-[1820px] h-[60px] md:h-[70px] lg:h-[80px] rounded-[30px] md:rounded-[35px] lg:rounded-[40px] border border-colonial-border bg-white flex items-center justify-between px-4 md:px-6 lg:px-8 pointer-events-auto shadow-sm">
           {/* Logo */}
           <div className="flex items-center">
             <img 
               src="https://api.builder.io/api/v1/image/assets/TEMP/9178f14664a332d98928a8d74f4bfbf96ad1fa80?width=270" 
               alt="Colonial Consultants Logo" 
+              loading="eager"
               className="h-[40px] md:h-[45px] lg:h-[50px] w-auto"
             />
           </div>
@@ -232,65 +294,73 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-[100px] md:pt-[120px] lg:pt-[140px] pb-12 md:pb-16 lg:pb-20 overflow-hidden">
-        {/* Full Screen Background Image */}
+      <section className="relative min-h-[100svh] pt-[80px] sm:pt-[100px] md:pt-[120px] lg:pt-[140px] pb-8 sm:pb-12 md:pb-16 lg:pb-20 overflow-hidden">
+        {/* Full Screen Background Image - Preload for faster render */}
         <div className="absolute inset-0 w-full h-full">
           <img 
             src="/images/person-using-ar-technology-perform-their-occupation.jpg" 
             alt="AR Technology Background"
-            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            className="w-full h-full object-cover object-center"
           />
           {/* Dark Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/85 via-black/70 to-black/50 md:from-black/70 md:via-black/50 md:to-transparent" />
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Hero Content */}
-            <div className="space-y-6 md:space-y-8 lg:space-y-10">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10">
               {/* Badge */}
-              <div className="inline-flex items-center px-5 md:px-6 lg:px-[25px] py-2.5 md:py-3 rounded-[16px] md:rounded-[18px] lg:rounded-[20px] border border-colonial-gold bg-colonial-gold/30 backdrop-blur-sm">
-                <span className="text-white font-semibold text-xs md:text-[13px]">
+              <div className="inline-flex items-center px-4 sm:px-5 md:px-6 lg:px-[25px] py-2 sm:py-2.5 md:py-3 rounded-[14px] sm:rounded-[16px] md:rounded-[18px] lg:rounded-[20px] border border-colonial-gold bg-colonial-gold/30 backdrop-blur-sm">
+                <span className="text-white font-semibold text-[11px] sm:text-xs md:text-[13px]">
                   ✦ 15+ Years Excellence
                 </span>
               </div>
 
               {/* Main Heading */}
               <div className="space-y-2 md:space-y-3">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-white drop-shadow-2xl leading-[1.1] md:leading-[1.1] lg:leading-[62px]">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-white drop-shadow-2xl leading-tight md:leading-[1.1] lg:leading-[62px]">
                   Simply a Better
                   <br />
                   Experience
                 </h1>
-                <div className="w-[140px] md:w-[180px] lg:w-[200px] h-[10px] md:h-[12px] lg:h-[14px] bg-colonial-gold rounded-[3px] shadow-lg" />
-                <h2 className="text-lg md:text-xl lg:text-[22px] font-semibold text-white drop-shadow-lg">
+                <div className="w-[100px] sm:w-[140px] md:w-[180px] lg:w-[200px] h-[8px] sm:h-[10px] md:h-[12px] lg:h-[14px] bg-colonial-gold rounded-[3px] shadow-lg" />
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-semibold text-white drop-shadow-lg">
                   Engineering Excellence Since 2010
                 </h2>
               </div>
 
               {/* Description */}
-              <p className="text-sm md:text-base lg:text-[16px] text-white/90 leading-relaxed md:leading-[24px] lg:leading-[26px] max-w-xl drop-shadow-lg">
+              <p className="text-xs sm:text-sm md:text-base lg:text-[16px] text-white/90 leading-relaxed md:leading-[24px] lg:leading-[26px] max-w-xl drop-shadow-lg">
                 We don't just design solutions, we redefine possibilities. Our passionate, innovative teams partner with clients to turn challenges into bold, practical outcomes through cutting-edge BIM technology and precision engineering.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 lg:gap-[20px] pt-3">
-                <a href="#contact" className="px-6 md:px-8 lg:px-[45px] py-3 md:py-3.5 lg:py-4 rounded-[22px] md:rounded-[26px] lg:rounded-[28px] bg-colonial-gold text-colonial-navy font-semibold text-sm md:text-base lg:text-[15px] hover:bg-colonial-gold/90 transition-colors text-center shadow-xl">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 lg:gap-[20px] pt-2 sm:pt-3">
+                <a href="#contact" className="px-5 sm:px-6 md:px-8 lg:px-[45px] py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-[20px] sm:rounded-[22px] md:rounded-[26px] lg:rounded-[28px] bg-colonial-gold text-colonial-navy font-semibold text-xs sm:text-sm md:text-base lg:text-[15px] hover:bg-colonial-gold/90 transition-colors text-center shadow-xl">
                   Get Started →
                 </a>
-                <button className="px-6 md:px-8 lg:px-[40px] py-3 md:py-3.5 lg:py-4 rounded-[22px] md:rounded-[26px] lg:rounded-[28px] border-2 border-white/50 bg-white/10 backdrop-blur-sm text-white font-semibold text-sm md:text-base lg:text-[15px] hover:bg-white/20 transition-colors">
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('site-visit');
+                    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  className="px-5 sm:px-6 md:px-8 lg:px-[40px] py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-[20px] sm:rounded-[22px] md:rounded-[26px] lg:rounded-[28px] border-2 border-white/50 bg-white/10 backdrop-blur-sm text-white font-semibold text-xs sm:text-sm md:text-base lg:text-[15px] hover:bg-white/20 transition-colors"
+                >
                   ▶ Watch Demo
                 </button>
               </div>
             </div>
 
             {/* 3D Building Model */}
-            <div className="h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] mt-8 lg:mt-0">
+            <div className="h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] mt-6 sm:mt-8 lg:mt-0 hidden sm:block">
               <Suspense fallback={
-                <div className="w-full h-full flex items-center justify-center bg-colonial-light-bg rounded-lg">
+                <div className="w-full h-full flex items-center justify-center bg-colonial-light-bg/10 backdrop-blur-sm rounded-lg">
                   <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-colonial-gold border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                    <p className="text-colonial-gray text-sm">Loading 3D Model...</p>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 border-4 border-colonial-gold border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+                    <p className="text-white/80 text-xs sm:text-sm">Loading 3D Model...</p>
                   </div>
                 </div>
               }>
@@ -300,35 +370,35 @@ export default function Index() {
           </div>
 
           {/* Quick Stats */}
-          <div className="mt-12 md:mt-16 lg:mt-20 xl:mt-[100px]">
-            <div className="bg-white border border-colonial-border rounded-[20px] md:rounded-[22px] lg:rounded-[25px] p-6 md:p-8 lg:p-10 xl:px-[70px] xl:py-[20px]">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12 xl:gap-[70px]">
+          <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-[100px]">
+            <div className="bg-white/95 backdrop-blur-sm border border-colonial-border rounded-[16px] sm:rounded-[20px] md:rounded-[22px] lg:rounded-[25px] p-4 sm:p-6 md:p-8 lg:p-10 xl:px-[70px] xl:py-[20px]">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12 xl:gap-[70px]">
                 {/* Projects Delivered */}
-                <div className="space-y-2 md:space-y-3">
-                  <div className="text-xl md:text-2xl">🏗️</div>
-                  <div className="text-3xl md:text-4xl lg:text-[38px] font-bold text-colonial-navy">500+</div>
-                  <div className="text-xs md:text-[13px] text-colonial-gray">Projects Delivered</div>
+                <div ref={projectsCounter.ref} className="space-y-1 sm:space-y-2 md:space-y-3 text-center sm:text-left">
+                  <div className="text-lg sm:text-xl md:text-2xl">🏗️</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-colonial-navy">{projectsCounter.displayValue}</div>
+                  <div className="text-[10px] sm:text-xs md:text-[13px] text-colonial-gray">Projects Delivered</div>
                 </div>
 
                 {/* Years in Business */}
-                <div className="space-y-2 md:space-y-3">
-                  <div className="text-xl md:text-2xl">📅</div>
-                  <div className="text-3xl md:text-4xl lg:text-[38px] font-bold text-colonial-navy">15+</div>
-                  <div className="text-xs md:text-[13px] text-colonial-gray">Years in Business</div>
+                <div ref={yearsCounter.ref} className="space-y-1 sm:space-y-2 md:space-y-3 text-center sm:text-left">
+                  <div className="text-lg sm:text-xl md:text-2xl">📅</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-colonial-navy">{yearsCounter.displayValue}</div>
+                  <div className="text-[10px] sm:text-xs md:text-[13px] text-colonial-gray">Years in Business</div>
                 </div>
 
                 {/* Client Satisfaction */}
-                <div className="space-y-2 md:space-y-3">
-                  <div className="text-xl md:text-2xl">⭐</div>
-                  <div className="text-3xl md:text-4xl lg:text-[38px] font-bold text-colonial-navy">95%</div>
-                  <div className="text-xs md:text-[13px] text-colonial-gray">Client Satisfaction</div>
+                <div ref={satisfactionCounter.ref} className="space-y-1 sm:space-y-2 md:space-y-3 text-center sm:text-left">
+                  <div className="text-lg sm:text-xl md:text-2xl">⭐</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-colonial-navy">{satisfactionCounter.displayValue}</div>
+                  <div className="text-[10px] sm:text-xs md:text-[13px] text-colonial-gray">Client Satisfaction</div>
                 </div>
 
                 {/* Expert Team */}
-                <div className="space-y-2 md:space-y-3">
-                  <div className="text-xl md:text-2xl">👥</div>
-                  <div className="text-3xl md:text-4xl lg:text-[38px] font-bold text-colonial-navy">50+</div>
-                  <div className="text-xs md:text-[13px] text-colonial-gray">Expert Team</div>
+                <div ref={teamCounter.ref} className="space-y-1 sm:space-y-2 md:space-y-3 text-center sm:text-left">
+                  <div className="text-lg sm:text-xl md:text-2xl">👥</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-bold text-colonial-navy">{teamCounter.displayValue}</div>
+                  <div className="text-[10px] sm:text-xs md:text-[13px] text-colonial-gray">Expert Team</div>
                 </div>
               </div>
             </div>
@@ -337,9 +407,9 @@ export default function Index() {
       </section>
 
       {/* Construction Animation Section */}
-      <section className="relative bg-colonial-light-bg" style={{ height: '300vh' }}>
+      <section className="relative bg-colonial-light-bg h-[80vh] sm:h-[100vh] md:h-[150vh] lg:h-[200vh]">
         {/* Sticky Container */}
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <div className="sticky top-0 h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen w-full overflow-hidden">
           {/* Full Screen Animation */}
           <FrameScrollAnimation
             frameCount={80}
@@ -726,6 +796,7 @@ export default function Index() {
                     <img 
                       src={project.image} 
                       alt={project.title}
+                      loading="lazy"
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
@@ -748,6 +819,7 @@ export default function Index() {
                 <img 
                   src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" 
                   alt="Residential Development"
+                  loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -767,6 +839,7 @@ export default function Index() {
                 <img 
                   src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800" 
                   alt="Commercial Tower"
+                  loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -786,6 +859,7 @@ export default function Index() {
                 <img 
                   src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800" 
                   alt="Transit Center"
+                  loading="lazy"
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -824,16 +898,13 @@ export default function Index() {
             <div className="space-y-6 md:space-y-8">
               <div>
                 <div className="text-colonial-blue font-bold text-xs md:text-sm tracking-[2px] mb-4">
-                  ABOUT US
+                  HOW WE WORK
                 </div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-[52px] font-bold text-colonial-navy mb-6">
-                  Why Colonial Consultants?
+                  How we work
                 </h2>
                 <p className="text-base md:text-lg text-colonial-gray leading-relaxed mb-6">
-                  At Colonial Consultants, we lead with a people-first mindset. Whether you're a client or a team member, you'll feel the difference in how we work—because your success is our priority.
-                </p>
-                <p className="text-base md:text-lg text-colonial-gray leading-relaxed mb-6">
-                  Experience a new standard in engineering, planning, and design consulting, where creativity meets commitment and every interaction sets the bar higher.
+                  We start by defining the scope and the rules of the road. Inputs, jurisdiction expectations, deliverables, and schedule. Then we execute.
                 </p>
               </div>
 
@@ -844,8 +915,8 @@ export default function Index() {
                     <span className="text-2xl">✓</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-colonial-navy mb-1">Multidisciplinary Approach</h4>
-                    <p className="text-sm text-colonial-gray">Comprehensive solutions from planning through construction</p>
+                    <h4 className="text-lg font-semibold text-colonial-navy mb-1">Clarity first</h4>
+                    <p className="text-sm text-colonial-gray">You'll know what you're getting, what we need, and when you'll have it.</p>
                   </div>
                 </div>
 
@@ -854,8 +925,8 @@ export default function Index() {
                     <span className="text-2xl">✓</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-colonial-navy mb-1">Local Knowledge, National Resources</h4>
-                    <p className="text-sm text-colonial-gray">Scaled to meet your unique needs and budget</p>
+                    <h4 className="text-lg font-semibold text-colonial-navy mb-1">Straight answers</h4>
+                    <p className="text-sm text-colonial-gray">If something is a risk, we say it early. If we don't know, we don't bluff.</p>
                   </div>
                 </div>
 
@@ -864,8 +935,18 @@ export default function Index() {
                     <span className="text-2xl">✓</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-colonial-navy mb-1">Technology-Driven Innovation</h4>
-                    <p className="text-sm text-colonial-gray">Cutting-edge BIM and design tools for superior outcomes</p>
+                    <h4 className="text-lg font-semibold text-colonial-navy mb-1">Commitment with fairness</h4>
+                    <p className="text-sm text-colonial-gray">When we quote a scope and commit to it, we honor that commitment. If conditions change, we don't surprise you.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-colonial-green/10 rounded-full flex items-center justify-center">
+                    <span className="text-2xl">✓</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-colonial-navy mb-1">Finish strong</h4>
+                    <p className="text-sm text-colonial-gray">We support comment responses, revisions, punchlists, and closeout to get you across the line.</p>
                   </div>
                 </div>
               </div>
@@ -881,17 +962,80 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="relative">
-              <div className="relative rounded-[24px] overflow-hidden shadow-2xl">
-                <div className="aspect-[4/3] bg-gradient-to-br from-colonial-blue/20 to-colonial-purple/20 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="text-6xl mb-4">🏗️</div>
-                    <h3 className="text-2xl font-bold text-colonial-navy mb-2">Building Excellence</h3>
-                    <p className="text-colonial-gray">Since 2010</p>
-                  </div>
-                </div>
-              </div>
+            {/* Right Image - Site Visit Carousel */}
+            <div id="site-visit" className="relative scroll-mt-20">
+              <SiteVisitCarousel
+                images={[
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.29 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.33 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.34 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.34 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.35 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.37 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.37 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.41 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.41 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.42 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.42 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.43 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.47 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.48 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.48 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.49 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.49 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.50 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.50 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.51 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.51 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.52 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.52 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.53 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.54 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.55 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.14.56 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.22 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.23 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.23 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.24 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.24 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.24 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.25 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.25 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.25 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.26 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.26 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.27 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.27 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.27 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.28 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.28 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.28 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.29 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.29 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.30 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.30 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.30 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.31 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.31 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.31 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.32 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.32 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.32 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.33 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.33 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.33 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.34 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.34 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.34 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.35 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.35 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.35 PM.jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.36 PM (1).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.36 PM (2).jpeg',
+                  '/images/WhatsApp Image 2026-01-12 at 12.15.36 PM.jpeg',
+                ]}
+                autoPlayInterval={3000}
+              />
               
               {/* Floating Stats Card */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-[20px] p-6 shadow-xl border border-colonial-border">
@@ -1113,7 +1257,7 @@ export default function Index() {
               <h4 className="text-white font-semibold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 <li><Link to="/" className="text-gray-400 hover:text-colonial-gold transition-colors">Home</Link></li>
-                <li><button onClick={() => setIsServicesModalOpen(true)} className="text-gray-400 hover:text-colonial-gold transition-colors">Services</button></li>
+                <li><button onClick={() => setIsExpertiseModalOpen(true)} className="text-gray-400 hover:text-colonial-gold transition-colors">Services</button></li>
                 <li><Link to="/projects" className="text-gray-400 hover:text-colonial-gold transition-colors">Projects</Link></li>
                 <li><Link to="/about" className="text-gray-400 hover:text-colonial-gold transition-colors">About</Link></li>
                 <li><a href="#contact" className="text-gray-400 hover:text-colonial-gold transition-colors">Contact</a></li>
@@ -1146,6 +1290,9 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* ChatBot */}
+      <ChatBot />
     </div>
   );
 }

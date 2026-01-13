@@ -7,6 +7,13 @@
 
 @layer base {
   /**
+   * Smooth scrolling for the entire page
+   */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /**
    * Tailwind CSS theme
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
    * A different format will require also updating the theme in tailwind.config.ts.
