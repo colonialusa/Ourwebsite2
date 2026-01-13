@@ -2,6 +2,8 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+
+// Use Vercel-compatible admin routes (in-memory data store)
 import {
   handleLogin,
   handleStats,
@@ -16,7 +18,7 @@ import {
   handleContactSubmission,
   handleGetContacts,
   verifyToken
-} from "./routes/admin";
+} from "./routes/admin-vercel";
 
 export function createServer() {
   const app = express();
