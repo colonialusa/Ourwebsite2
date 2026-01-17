@@ -64,11 +64,12 @@ export default function SiteVisitCarousel({
             isTransitioning ? 'opacity-0' : 'opacity-100'
           }`}
         />
-        {/* Preload next image */}
-        <link
-          rel="preload"
-          as="image"
-          href={images[(currentIndex + 1) % images.length]}
+        {/* Hidden preload image for next slide */}
+        <img
+          src={images[(currentIndex + 1) % images.length]}
+          alt=""
+          loading="eager"
+          className="hidden"
         />
       </div>
 

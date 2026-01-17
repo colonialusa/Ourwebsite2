@@ -1,13 +1,28 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ServicesModal from "./ServicesModal";
 
 export default function Navigation() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isExpertiseModalOpen, setIsExpertiseModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleMobileNavigation = (path: string) => {
+    setIsMobileMenuOpen(false);
+    setTimeout(() => {
+      navigate(path);
+    }, 50);
+  };
+
+  const handleExpertiseClick = () => {
+    setIsMobileMenuOpen(false);
+    setTimeout(() => {
+      setIsExpertiseModalOpen(true);
+    }, 50);
+  };
 
   return (
     <>
@@ -19,7 +34,7 @@ export default function Navigation() {
 
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 lg:px-12 xl:px-[50px] pt-4 md:pt-6 lg:pt-[30px]">
-        <div className="mx-auto max-w-[1820px] h-[60px] md:h-[70px] lg:h-[80px] rounded-[30px] md:rounded-[35px] lg:rounded-[40px] border border-colonial-border bg-white flex items-center justify-between px-4 md:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1820px] h-[60px] md:h-[70px] lg:h-[80px] rounded-[30px] md:rounded-[35px] lg:rounded-[40px] border border-colonial-border bg-white flex items-center justify-between px-4 md:px-6 lg:px-8 shadow-lg">
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/">
@@ -90,7 +105,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden flex flex-col gap-1.5 p-2"
+            className="lg:hidden flex flex-col gap-1.5 p-2 relative z-[60] touch-manipulation"
             aria-label="Toggle menu"
           >
             <span className={`w-6 h-0.5 bg-colonial-navy transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
@@ -106,82 +121,157 @@ export default function Navigation() {
             Get Quote
           </a>
         </div>
+      </header>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Mobile Menu Dropdown - Positioned independently */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 mx-4 md:mx-8 bg-white rounded-[20px] border border-colonial-border shadow-lg overflow-hidden">
+          <div 
+            className="fixed left-4 right-4 top-[84px] z-[9999] lg:hidden bg-white rounded-[20px] border border-colonial-border shadow-2xl overflow-hidden"
+            style={{ userSelect: 'none', WebkitUserSelect: 'none', pointerEvents: 'auto' }}
+          >
             <nav className="flex flex-col">
-              <Link 
-                to="/" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-6 py-4 text-base border-b border-colonial-border ${
+              <div 
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileNavigation('/');
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileNavigation('/');
+                }}
+                className={`px-6 py-4 text-base border-b border-colonial-border active:bg-gray-100 cursor-pointer ${
                   isActive('/') 
                     ? 'bg-colonial-gold/10 text-colonial-navy font-semibold' 
-                    : 'text-colonial-gray hover:bg-gray-50'
+                    : 'text-colonial-gray'
                 }`}
+                style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}
               >
                 Home
-              </Link>
-              <Link 
-                to="/services"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-6 py-4 text-base border-b border-colonial-border ${
+              </div>
+              <div 
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileNavigation('/services');
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileNavigation('/services');
+                }}
+                className={`px-6 py-4 text-base border-b border-colonial-border active:bg-gray-100 cursor-pointer ${
                   isActive('/services') || location.pathname.startsWith('/services/')
                     ? 'bg-colonial-gold/10 text-colonial-navy font-semibold' 
-                    : 'text-colonial-gray hover:bg-gray-50'
+                    : 'text-colonial-gray'
                 }`}
+                style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}
               >
                 Services
-              </Link>
-              <button 
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsExpertiseModalOpen(true);
+              </div>
+              <div 
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleExpertiseClick();
                 }}
-                className="px-6 py-4 text-colonial-gray font-normal text-base hover:bg-gray-50 transition-colors border-b border-colonial-border text-left"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleExpertiseClick();
+                }}
+                className="px-6 py-4 text-colonial-gray font-normal text-base border-b border-colonial-border active:bg-gray-100 cursor-pointer"
+                style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}
               >
                 Expertise
-              </button>
-              <Link 
-                to="/projects" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-6 py-4 text-base border-b border-colonial-border ${
+              </div>
+              <div 
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileNavigation('/projects');
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileNavigation('/projects');
+                }}
+                className={`px-6 py-4 text-base border-b border-colonial-border active:bg-gray-100 cursor-pointer ${
                   isActive('/projects') 
                     ? 'bg-colonial-gold/10 text-colonial-navy font-semibold' 
-                    : 'text-colonial-gray hover:bg-gray-50'
+                    : 'text-colonial-gray'
                 }`}
+                style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}
               >
                 Projects
-              </Link>
-              <Link 
-                to="/about" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-6 py-4 text-base border-b border-colonial-border ${
+              </div>
+              <div 
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileNavigation('/about');
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleMobileNavigation('/about');
+                }}
+                className={`px-6 py-4 text-base border-b border-colonial-border active:bg-gray-100 cursor-pointer ${
                   isActive('/about') 
                     ? 'bg-colonial-gold/10 text-colonial-navy font-semibold' 
-                    : 'text-colonial-gray hover:bg-gray-50'
+                    : 'text-colonial-gray'
                 }`}
+                style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}
               >
                 About
-              </Link>
-              <a
-                href="/#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-6 py-4 text-colonial-gray font-normal text-base hover:bg-gray-50 transition-colors"
+              </div>
+              <div
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => window.location.href = '/#contact', 50);
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => window.location.href = '/#contact', 50);
+                }}
+                className="px-6 py-4 text-colonial-gray font-normal text-base active:bg-gray-100 cursor-pointer"
+                style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}
               >
                 Contact
-              </a>
-              <a 
-                href="/#contact" 
-                onClick={() => setIsMobileMenuOpen(false)} 
-                className="sm:hidden mx-4 my-4 px-6 py-3 rounded-[20px] bg-colonial-navy text-colonial-gold font-semibold text-sm hover:bg-colonial-navy/90 transition-colors text-center"
+              </div>
+              <div 
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => window.location.href = '/#contact', 50);
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => window.location.href = '/#contact', 50);
+                }}
+                className="sm:hidden mx-4 my-4 px-6 py-3 rounded-[20px] bg-colonial-navy text-colonial-gold font-semibold text-sm active:bg-colonial-navy/80 transition-colors text-center cursor-pointer"
+                style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}
               >
                 Get Quote
-              </a>
+              </div>
             </nav>
           </div>
         )}
-      </header>
     </>
   );
 }

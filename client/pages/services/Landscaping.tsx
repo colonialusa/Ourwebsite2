@@ -1,29 +1,13 @@
 import { Link } from "react-router-dom";
+import Navigation from "@/components/Navigation";
 
 const Landscaping = () => {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex justify-between items-center">
-            <Link to="/" className="text-2xl font-bold" style={{ color: '#2C3E50' }}>
-              Company Name
-            </Link>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/services" className="hover:opacity-70">Services</Link>
-              <Link to="/projects" className="hover:opacity-70">Projects</Link>
-              <Link to="/about" className="hover:opacity-70">About</Link>
-              <Link to="/contact" className="px-6 py-2 rounded-md text-white hover:opacity-90" style={{ backgroundColor: '#F4B942' }}>
-                Contact Us
-              </Link>
-            </div>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       {/* Hero Section */}
-      <section className="py-20" style={{ backgroundColor: '#2C3E50' }}>
+      <section className="relative bg-[#2C3E50] pt-[140px] md:pt-[160px] lg:pt-[180px] pb-16 md:pb-20 lg:pb-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#F4B942' }}>
             Landscaping CAD Services

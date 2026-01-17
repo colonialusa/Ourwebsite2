@@ -12,13 +12,13 @@ export default function ServicesModal({ isOpen, onClose }: ServicesModalProps) {
     <>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black/50 z-50 transition-opacity"
+        className="fixed inset-0 bg-black/50 z-[100] transition-opacity"
         onClick={onClose}
       />
       
       {/* Modal */}
-      <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 overflow-y-auto">
-        <div className="relative bg-white rounded-[24px] shadow-2xl max-w-6xl w-full mx-4 my-8 p-8 md:p-12">
+      <div className="fixed inset-0 z-[101] flex items-start justify-center pt-20 overflow-y-auto pointer-events-none">
+        <div className="relative bg-white rounded-[24px] shadow-2xl max-w-6xl w-full mx-4 my-8 p-8 md:p-12 pointer-events-auto">
           {/* Close Button */}
           <button
             onClick={onClose}

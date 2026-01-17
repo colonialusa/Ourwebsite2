@@ -1,18 +1,10 @@
 import { Link } from "react-router-dom";
+import Navigation from "@/components/Navigation";
 
 export default function StructuralEngineering() {
   return (
     <div className="min-h-screen bg-white">
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 lg:px-12 xl:px-[50px] pt-4 md:pt-6 lg:pt-[30px]">
-        <div className="mx-auto max-w-[1820px] h-[60px] md:h-[70px] lg:h-[80px] rounded-[30px] md:rounded-[35px] lg:rounded-[40px] border border-colonial-border bg-white flex items-center justify-between px-4 md:px-6 lg:px-8">
-          <div className="flex items-center">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/9178f14664a332d98928a8d74f4bfbf96ad1fa80?width=270" alt="Colonial Consultants Logo" className="h-[40px] md:h-[45px] lg:h-[50px] w-auto"/>
-          </div>
-          <nav className="hidden lg:flex items-center gap-2 xl:gap-3">
-            <Link to="/" className="px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg text-colonial-gray font-normal text-sm xl:text-[15px] hover:bg-gray-50 transition-colors">Home</Link>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       <section className="relative bg-[#2C3E50] pt-[140px] md:pt-[160px] lg:pt-[180px] pb-16 md:pb-20 lg:pb-24">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
