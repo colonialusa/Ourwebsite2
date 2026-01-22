@@ -1,6 +1,39 @@
 [
   {
     "id": "1736665300001",
+    "title": "Survey & Feasibility",
+    "description": "Professional land surveying and comprehensive feasibility studies that provide the critical foundation for successful project development. Our expert surveyors and analysts deliver precise data and actionable insights to guide informed decision-making.",
+    "icon": "📏",
+    "features": [
+      "Boundary & Topographic Surveys",
+      "Construction Layout & As-Built Surveys",
+      "Feasibility Analysis & Site Assessment",
+      "Market Research & Demand Analysis",
+      "Environmental & Geotechnical Studies",
+      "Regulatory Compliance Review",
+      "Cost-Benefit Analysis",
+      "Risk Assessment & Mitigation Planning"
+    ],
+    "detailedInfo": {
+      "overview": "Start your project on solid ground with our comprehensive survey and feasibility services. We combine cutting-edge surveying technology with thorough analytical methodologies to provide the data and insights you need to make confident decisions.",
+      "surveyServices": [
+        "GPS/GNSS Control Surveys",
+        "3D Laser Scanning & Point Cloud Processing",
+        "Aerial Photography & Drone Surveys",
+        "Utility Location & Mapping",
+        "Property Line Determination"
+      ],
+      "feasibilityServices": [
+        "Site Suitability Analysis",
+        "Zoning & Land Use Evaluation",
+        "Infrastructure Capacity Assessment",
+        "Financial Viability Studies",
+        "Alternative Site Comparison"
+      ]
+    }
+  },
+  {
+    "id": "1736665300002",
     "title": "Site Planning & Development",
     "description": "Comprehensive site planning services that transform concepts into reality. Our expert team delivers innovative solutions for residential, commercial, and industrial developments, ensuring optimal land use and sustainable design practices.",
     "icon": "📐",
@@ -32,102 +65,7 @@
     }
   },
   {
-    "id": "1736665300002",
-    "title": "Architectural Design Services",
-    "description": "Award-winning architectural design that combines aesthetic excellence with functional efficiency. We create inspiring spaces for commercial, residential, and institutional projects that reflect your vision and exceed expectations.",
-    "icon": "🏛️",
-    "features": [
-      "Conceptual Design & 3D Visualization",
-      "Schematic Design Development",
-      "Construction Documents & Specifications",
-      "Interior Space Planning & Design",
-      "Sustainable & Green Building Design",
-      "Renovation & Adaptive Reuse",
-      "Building Code Compliance Review",
-      "Value Engineering & Cost Optimization"
-    ],
-    "detailedInfo": {
-      "overview": "Our architectural team brings decades of combined experience in creating spaces that inspire. From initial sketches to final construction documents, we ensure every detail aligns with your vision, budget, and sustainability goals.",
-      "specialties": [
-        "Commercial Office Buildings",
-        "Multi-Family Residential Complexes",
-        "Healthcare Facilities",
-        "Educational Institutions",
-        "Mixed-Use Developments"
-      ],
-      "deliverables": [
-        "3D Renderings & Virtual Walkthroughs",
-        "Detailed Floor Plans & Elevations",
-        "Material & Finish Specifications",
-        "Construction Administration Support"
-      ]
-    }
-  },
-  {
     "id": "1736665300003",
-    "title": "BIM Services & 3D Modeling",
-    "description": "Advanced Building Information Modeling (BIM) services that revolutionize project delivery. Our BIM experts create intelligent 3D models that improve collaboration, reduce errors, and accelerate construction timelines for projects of all scales.",
-    "icon": "🏗️",
-    "features": [
-      "Architectural BIM Modeling (Revit, ArchiCAD)",
-      "Structural BIM Coordination",
-      "MEP Systems Integration",
-      "4D Construction Sequencing",
-      "5D Cost Estimation & Quantity Takeoffs",
-      "Clash Detection & Coordination",
-      "As-Built BIM Documentation",
-      "Virtual Reality (VR) & Augmented Reality (AR) Experiences"
-    ],
-    "detailedInfo": {
-      "overview": "Leverage the power of BIM to transform your construction projects. Our comprehensive BIM services provide a single source of truth for all project stakeholders, enabling better decision-making and dramatically reducing costly conflicts during construction.",
-      "technologies": [
-        "Autodesk Revit & AutoCAD",
-        "Navisworks for Clash Detection",
-        "BIM 360 for Cloud Collaboration",
-        "Dynamo for Automation",
-        "Unity & Unreal Engine for VR/AR"
-      ],
-      "advantages": [
-        "Up to 40% reduction in coordination issues",
-        "Faster design iterations and approvals",
-        "Accurate quantity takeoffs and cost control",
-        "Enhanced stakeholder communication with 3D visualizations"
-      ]
-    }
-  },
-  {
-    "id": "1736665300004",
-    "title": "MEP Engineering Design",
-    "description": "Comprehensive Mechanical, Electrical, and Plumbing engineering solutions that ensure building systems operate efficiently and reliably. Our MEP engineers design sustainable, code-compliant systems optimized for performance and lifecycle costs.",
-    "icon": "⚡",
-    "features": [
-      "HVAC System Design & Analysis",
-      "Electrical Power Distribution & Lighting",
-      "Plumbing & Fire Protection Systems",
-      "Energy Modeling & Sustainability Analysis",
-      "Building Automation & Controls Integration",
-      "Load Calculations & Equipment Sizing",
-      "Code Compliance & Safety Reviews",
-      "Commissioning Support & Quality Assurance"
-    ],
-    "detailedInfo": {
-      "overview": "Our MEP engineering team delivers integrated building systems that maximize comfort, efficiency, and reliability. From concept through commissioning, we ensure every system is designed for optimal performance and maintainability.",
-      "services": [
-        "HVAC: Climate control, ventilation, and air quality systems",
-        "Electrical: Power distribution, lighting design, emergency systems",
-        "Plumbing: Water supply, drainage, and fire protection",
-        "Controls: Smart building automation and energy management"
-      ],
-      "expertise": [
-        "LEED & Green Building Certification Support",
-        "Energy-efficient system design",
-        "Renewable energy integration (solar, geothermal)",
-        "Life-cycle cost analysis and value engineering"
-      ]
-    }
-  },
-  {
-    "id": "1736665300005",
     "title": "Road & Infrastructure Design",
     "description": "Expert civil engineering for transportation infrastructure projects. We design safe, efficient, and sustainable roadways, highways, and urban infrastructure that serve communities for generations while minimizing environmental impact.",
     "icon": "🛣️",
@@ -159,35 +97,117 @@
     }
   },
   {
-    "id": "1736665300006",
-    "title": "BIM Consulting & Implementation",
-    "description": "Strategic BIM consulting services that help organizations maximize their return on technology investment. From BIM strategy development to staff training and workflow optimization, we guide your transition to efficient digital project delivery.",
-    "icon": "🎯",
+    "id": "1736665300004",
+    "title": "Survey Post Processing",
+    "description": "Precise post-processing of survey data and professional CAD drafting services that transform raw field data into accurate, detailed deliverables. Our experienced technicians ensure quality control and compliance with industry standards.",
+    "icon": "🗺️",
     "features": [
+      "GPS/GNSS Data Processing & Adjustment",
+      "Point Cloud Processing & 3D Modeling",
+      "Boundary Survey Plat Preparation",
+      "Topographic Map Creation",
+      "ALTA/NSPS Land Title Survey Drafting",
+      "Construction Staking Plans",
+      "As-Built Drawing Preparation",
+      "CAD Standards Development & QC"
+    ],
+    "detailedInfo": {
+      "overview": "Turn your survey data into professional deliverables with our comprehensive post-processing and drafting services. We utilize the latest software and techniques to ensure accuracy, clarity, and compliance with client specifications and industry standards.",
+      "capabilities": [
+        "Multi-station GPS network adjustments",
+        "LiDAR data classification and feature extraction",
+        "Contour generation and terrain modeling",
+        "Cross-section and profile development",
+        "Digital Terrain Model (DTM) creation"
+      ],
+      "software": [
+        "AutoCAD Civil 3D",
+        "Trimble Business Center",
+        "Leica Infinity",
+        "Carlson Survey",
+        "MicroStation"
+      ]
+    }
+  },
+  {
+    "id": "1736665300005",
+    "title": "BIM Services",
+    "description": "Complete Building Information Modeling (BIM) solutions including 3D modeling, coordination, and implementation consulting. Our BIM experts deliver intelligent models and strategic guidance to revolutionize your project delivery and maximize technology ROI.",
+    "icon": "🏗️",
+    "features": [
+      "Architectural BIM Modeling (Revit, ArchiCAD)",
+      "Structural & MEP Systems Integration",
+      "4D Construction Sequencing & 5D Cost Estimation",
+      "Clash Detection & Coordination",
       "BIM Strategy & Implementation Planning",
       "BIM Execution Plan (BEP) Development",
       "Staff Training & Capacity Building",
-      "Template & Standards Development",
-      "Workflow Optimization & Automation",
-      "Software Selection & IT Infrastructure",
-      "Quality Assurance & Model Auditing",
-      "Change Management & Support"
+      "Quality Assurance & Model Auditing"
     ],
     "detailedInfo": {
-      "overview": "Transform your organization with our proven BIM implementation methodology. We've helped dozens of firms successfully adopt BIM, achieving measurable improvements in productivity, quality, and profitability.",
+      "overview": "Leverage the full power of BIM with our comprehensive services that span from detailed 3D modeling to strategic implementation consulting. Whether you need project-specific BIM deliverables or organizational transformation, we provide the expertise to achieve measurable results.",
+      "modeling": [
+        "LOD 100-500 BIM models for all disciplines",
+        "Intelligent 3D models with embedded data",
+        "Navisworks coordination and clash detection",
+        "Virtual Reality (VR) & Augmented Reality (AR)",
+        "As-Built BIM documentation"
+      ],
       "consulting": [
         "BIM Readiness Assessment",
-        "Technology Stack Recommendations",
-        "Custom BIM Standards & Protocols",
-        "Pilot Project Planning & Support",
-        "ROI Analysis & Performance Metrics"
+        "Technology stack recommendations",
+        "Custom BIM standards & protocols",
+        "Software training (Revit, Navisworks, BIM 360)",
+        "Workflow optimization & automation",
+        "Change management & ongoing support"
       ],
-      "training": [
-        "Software Training (Revit, Navisworks, BIM 360)",
-        "Workflow Best Practices",
-        "Clash Detection & Coordination",
-        "Cloud Collaboration Platforms",
-        "Ongoing Technical Support"
+      "benefits": [
+        "Up to 40% reduction in coordination issues",
+        "Faster design iterations and approvals",
+        "Accurate quantity takeoffs and cost control",
+        "Enhanced stakeholder communication",
+        "Measurable improvements in productivity and profitability"
+      ]
+    }
+  },
+  {
+    "id": "1736665300006",
+    "title": "Onsite Services & Grading",
+    "description": "Professional onsite engineering services and expert grading solutions that ensure your project is built to specification. Our field teams provide construction staking, inspection, and quality control to keep your project on track and on budget.",
+    "icon": "⚒️",
+    "features": [
+      "Construction Staking & Layout Services",
+      "Grade Checking & Elevation Verification",
+      "As-Built Surveys & Documentation",
+      "Site Inspection & Quality Control",
+      "Grading Plan Development & Review",
+      "Earthwork Quantity Calculations",
+      "Erosion Control Plan Implementation",
+      "Final Site Certification"
+    ],
+    "detailedInfo": {
+      "overview": "Bring precision to your construction site with our comprehensive onsite services and grading expertise. From initial layout to final certification, our experienced field crews ensure accurate construction and compliance with design specifications.",
+      "stakingServices": [
+        "Building corner and offset staking",
+        "Foundation and footing layout",
+        "Utility line staking",
+        "Roadway centerline and offset stakes",
+        "Site amenity location verification"
+      ],
+      "gradingServices": [
+        "Mass grading and rough grading",
+        "Fine grading for pavements and structures",
+        "Slope stability monitoring",
+        "Cut/fill volume calculations",
+        "Drainage verification and adjustment",
+        "Final grade certification"
+      ],
+      "qualityControl": [
+        "Daily grade checking and reporting",
+        "Elevation conformance verification",
+        "Drainage flow testing",
+        "Compaction testing coordination",
+        "Photo documentation"
       ]
     }
   }

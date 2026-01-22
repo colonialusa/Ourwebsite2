@@ -11,14 +11,16 @@ export default function BimServices() {
           <div className="max-w-4xl">
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-[#F4B942] leading-tight mb-6">
-              BUILDING INFORMATION<br />
-              MODELING
+              BIM SERVICES
             </h1>
 
             {/* Subtitle */}
             <h2 className="text-2xl md:text-3xl lg:text-[32px] font-semibold text-white mb-6">
-              Advanced 3D Technology
+              3D Modeling, Coordination & Implementation Consulting
             </h2>
+            <p className="text-lg text-white/80">
+              Complete Building Information Modeling solutions from detailed 3D modeling to strategic implementation consulting
+            </p>
           </div>
         </div>
       </section>
@@ -213,6 +215,107 @@ export default function BimServices() {
                   </div>
                   <span className="text-base md:text-lg text-[#2C3E50] font-medium">As-Built Documentation</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BIM Consulting & Implementation Section */}
+      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-colonial-blue to-colonial-purple">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-white mb-4">
+              BIM Consulting & Implementation
+            </h2>
+            <p className="text-lg text-white/90 max-w-3xl mx-auto">
+              Strategic BIM consulting to help your organization maximize technology ROI and transform project delivery
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Strategy & Planning */}
+            <div className="bg-white rounded-xl p-8">
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-2xl font-bold text-colonial-navy mb-4">Strategy & Planning</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">BIM Readiness Assessment</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">BIM Execution Plan (BEP) Development</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">Technology Stack Recommendations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">Custom BIM Standards & Protocols</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">ROI Analysis & Performance Metrics</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Training & Support */}
+            <div className="bg-white rounded-xl p-8">
+              <div className="text-4xl mb-4">👥</div>
+              <h3 className="text-2xl font-bold text-colonial-navy mb-4">Training & Support</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">Staff Training & Capacity Building</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">Software Training (Revit, Navisworks, BIM 360)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">Workflow Optimization & Automation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">Quality Assurance & Model Auditing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-colonial-gold text-xl flex-shrink-0">✓</span>
+                  <span className="text-colonial-gray">Change Management & Ongoing Support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Implementation Process */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">
+              Proven Implementation Methodology
+            </h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="text-4xl mb-3">1️⃣</div>
+                <h4 className="font-bold text-white mb-2">Assessment</h4>
+                <p className="text-white/80 text-sm">Evaluate current state and define goals</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">2️⃣</div>
+                <h4 className="font-bold text-white mb-2">Planning</h4>
+                <p className="text-white/80 text-sm">Develop roadmap and standards</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">3️⃣</div>
+                <h4 className="font-bold text-white mb-2">Training</h4>
+                <p className="text-white/80 text-sm">Build team capabilities</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl mb-3">4️⃣</div>
+                <h4 className="font-bold text-white mb-2">Support</h4>
+                <p className="text-white/80 text-sm">Ongoing assistance and optimization</p>
               </div>
             </div>
           </div>

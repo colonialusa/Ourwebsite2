@@ -2,6 +2,12 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import {
+  handleGetTestimonials,
+  handleCreateTestimonial,
+  handleUpdateTestimonial,
+  handleDeleteTestimonial
+} from "./routes/testimonials";
 
 // Use Vercel-compatible admin routes (in-memory data store)
 import {
@@ -39,6 +45,7 @@ export function createServer() {
   // Public endpoints (no auth required)
   app.get("/api/services", handleGetServices);
   app.get("/api/projects", handleGetProjects);
+  app.get("/api/testimonials", handleGetTestimonials);
 
   // Admin authentication
   app.post("/api/admin/login", handleLogin);
@@ -63,6 +70,12 @@ export function createServer() {
   
   // Get contact submissions (protected)
   app.get("/api/admin/contacts", verifyToken, handleGetContacts);
+
+  // Testimonials
+  app.get("/api/admin/testimonials", verifyToken, handleGetTestimonials);
+  app.post("/api/admin/testimonials", verifyToken, handleCreateTestimonial);
+  app.put("/api/admin/testimonials/:id", verifyToken, handleUpdateTestimonial);
+  app.delete("/api/admin/testimonials/:id", verifyToken, handleDeleteTestimonial);
 
   return app;
 }

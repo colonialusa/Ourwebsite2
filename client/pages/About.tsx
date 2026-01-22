@@ -57,10 +57,10 @@ function useCountUp(end: number, duration: number = 2000, suffix: string = "") {
 }
 
 export default function About() {
-  const projectsCounter = useCountUp(500, 2000, "+");
-  const teamCounter = useCountUp(50, 2000, "+");
+  const projectsCounter = useCountUp(40, 2000, "+");
+  const teamCounter = useCountUp(15, 2000, "+");
   const yearsCounter = useCountUp(15, 2000, "+");
-  const satisfactionCounter = useCountUp(95, 2000, "%");
+  const satisfactionCounter = useCountUp(100, 2000, "%");
 
   return (
     <div className="min-h-screen bg-white">
@@ -76,9 +76,6 @@ export default function About() {
 
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl relative z-10">
           <div className="text-center space-y-6">
-            <div className="inline-flex items-center px-6 py-3 rounded-[20px] bg-colonial-gold/20 border border-colonial-gold/30">
-              <span className="text-colonial-gold font-semibold text-sm">✦ About Colonial Consultants</span>
-            </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
               Simply a Better Experience
@@ -96,10 +93,7 @@ export default function About() {
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <div className="text-colonial-blue font-bold text-sm tracking-[2px] mb-4">ABOUT US</div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-colonial-navy mb-6">
-                About Colonial Consultants
-              </h2>
+              <div className="text-colonial-blue font-bold text-xl md:text-2xl tracking-[2px] mb-6">ABOUT US</div>
               <div className="space-y-4 text-lg text-colonial-gray leading-relaxed">
                 <p>
                   Colonial Consultants is built on an old-school idea. Do what you say you'll do, stand behind your work, and treat relationships like they matter.

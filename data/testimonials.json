@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1736665400001",
+    "name": "Michael Chen",
+    "position": "Project Director",
+    "company": "Harbor Development Corp",
+    "image": "",
+    "rating": 5,
+    "testimonial": "Colonial Consultants transformed our vision into reality. Their BIM expertise and attention to detail saved us significant time and cost overruns. The team was professional, responsive, and delivered exceptional results.",
+    "project": "Harbor View Residences"
+  },
+  {
+    "id": "1736665400002",
+    "name": "Sarah Thompson",
+    "position": "VP of Engineering",
+    "company": "Metro Infrastructure Inc",
+    "image": "",
+    "rating": 5,
+    "testimonial": "Working with Colonial Consultants on our transportation project was outstanding. Their technical knowledge and innovative approach to road design exceeded our expectations. Highly recommend their services.",
+    "project": "Downtown Transit Corridor"
+  },
+  {
+    "id": "1736665400003",
+    "name": "David Martinez",
+    "position": "Chief Architect",
+    "company": "Skyline Properties",
+    "image": "",
+    "rating": 5,
+    "testimonial": "The MEP coordination and clash detection services provided by Colonial Consultants were game-changing for our project. They identified potential issues early, saving us months of rework. True professionals.",
+    "project": "Skyline Corporate Tower"
+  },
+  {
+    "id": "1736665400004",
+    "name": "Jennifer Lee",
+    "position": "Development Manager",
+    "company": "GreenSpace Developments",
+    "image": "",
+    "rating": 5,
+    "testimonial": "Colonial's site planning expertise helped us maximize land utilization while meeting all regulatory requirements. Their team was collaborative, detail-oriented, and delivered ahead of schedule.",
+    "project": "Riverside Business Park"
+  }
+]

@@ -178,10 +178,22 @@ export default function Services() {
               {services.map((service, index) => {
                 const position = getNodePosition(index, services.length);
                 
+                // Map service IDs to their specific page routes
+                const serviceRoutes: Record<string, string> = {
+                  '1736665300001': '/survey-feasibility',
+                  '1736665300002': '/site-planning',
+                  '1736665300003': '/road-design',
+                  '1736665300004': '/survey-post-processing',
+                  '1736665300005': '/bim-services',
+                  '1736665300006': '/onsite-services'
+                };
+                
+                const servicePath = serviceRoutes[service.id] || `/services/${service.id}`;
+                
                 return (
                   <Link
                     key={service.id}
-                    to={`/services/${service.id}`}
+                    to={servicePath}
                     className="absolute group cursor-pointer z-20"
                     style={{...position, width: '220px', height: '220px'}}
                   >
@@ -316,10 +328,23 @@ export default function Services() {
 
             {/* Service Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {services.map((service, index) => (
+              {services.map((service, index) => {
+                // Map service IDs to their specific page routes
+                const serviceRoutes: Record<string, string> = {
+                  '1736665300001': '/survey-feasibility',
+                  '1736665300002': '/site-planning',
+                  '1736665300003': '/road-design',
+                  '1736665300004': '/survey-post-processing',
+                  '1736665300005': '/bim-services',
+                  '1736665300006': '/onsite-services'
+                };
+                
+                const servicePath = serviceRoutes[service.id] || `/services/${service.id}`;
+                
+                return (
                 <Link
                   key={service.id}
-                  to={`/services/${service.id}`}
+                  to={servicePath}
                   className="group cursor-pointer"
                 >
                   {/* 3D Card for Mobile */}
@@ -397,7 +422,8 @@ export default function Services() {
                     </div>
                   </div>
                 </Link>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}

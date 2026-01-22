@@ -87,12 +87,13 @@ export default function Index() {
   const navigate = useNavigate();
   
   // Counter animations for stats
-  const projectsCounter = useCountUp(500, 2000, "+");
+  const projectsCounter = useCountUp(40, 2000, "+");
   const yearsCounter = useCountUp(15, 2000, "+");
-  const satisfactionCounter = useCountUp(95, 2000, "%");
-  const teamCounter = useCountUp(50, 2000, "+");
+  const satisfactionCounter = useCountUp(100, 2000, "%");
+  const teamCounter = useCountUp(15, 2000, "+");
   const [services, setServices] = useState<Service[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [testimonials, setTestimonials] = useState<any[]>([]);
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
@@ -108,11 +109,13 @@ export default function Index() {
     // Use Promise.all to load data in parallel for faster initial load
     Promise.all([
       fetch('/api/services').then(res => res.json()),
-      fetch('/api/projects').then(res => res.json())
+      fetch('/api/projects').then(res => res.json()),
+      fetch('/api/testimonials').then(res => res.json())
     ])
-      .then(([servicesData, projectsData]) => {
+      .then(([servicesData, projectsData, testimonialsData]) => {
         setServices(servicesData.slice(0, 6)); // Show first 6 services
         setProjects(projectsData.slice(0, 3)); // Show first 3 projects
+        setTestimonials(testimonialsData); // Show all testimonials
       })
       .catch(err => console.error('Failed to fetch data:', err));
   }, []);
@@ -167,45 +170,43 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="relative min-h-[100svh] pt-[80px] sm:pt-[100px] md:pt-[120px] lg:pt-[140px] pb-8 sm:pb-12 md:pb-16 lg:pb-20 overflow-hidden">
-        {/* Full Screen Background Image - Preload for faster render */}
+        {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="/images/person-using-ar-technology-perform-their-occupation.jpg" 
-            alt="AR Technology Background"
+            src="/images/5566286.jpg" 
+            alt="Background"
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
             className="w-full h-full object-cover object-center"
           />
-          {/* Dark Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/85 via-black/70 to-black/50 md:from-black/70 md:via-black/50 md:to-transparent" />
+          {/* Light overlay for better text readability */}
+          <div className="absolute inset-0 bg-white/40"></div>
         </div>
-
+        
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             {/* Hero Content */}
             <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10">
               {/* Badge */}
-              <div className="inline-flex items-center px-4 sm:px-5 md:px-6 lg:px-[25px] py-2 sm:py-2.5 md:py-3 rounded-[14px] sm:rounded-[16px] md:rounded-[18px] lg:rounded-[20px] border border-colonial-gold bg-colonial-gold/30 backdrop-blur-sm">
-                <span className="text-white font-semibold text-[11px] sm:text-xs md:text-[13px]">
+              <div className="inline-flex items-center px-4 sm:px-5 md:px-6 lg:px-[25px] py-2 sm:py-2.5 md:py-3 rounded-[14px] sm:rounded-[16px] md:rounded-[18px] lg:rounded-[20px] border border-colonial-gold bg-colonial-gold/10">
+                <span className="text-colonial-navy font-semibold text-[11px] sm:text-xs md:text-[13px]">
                   ✦ 15+ Years Excellence
                 </span>
               </div>
 
               {/* Main Heading */}
               <div className="space-y-2 md:space-y-3">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-white drop-shadow-2xl leading-tight md:leading-[1.1] lg:leading-[62px]">
-                  Simply a Better
-                  <br />
-                  Experience
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-colonial-navy leading-tight md:leading-[1.1] lg:leading-[62px]">
+                  Engineering Excellence
                 </h1>
                 <div className="w-[100px] sm:w-[140px] md:w-[180px] lg:w-[200px] h-[8px] sm:h-[10px] md:h-[12px] lg:h-[14px] bg-colonial-gold rounded-[3px] shadow-lg" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-semibold text-white drop-shadow-lg">
-                  Engineering Excellence Since 2010
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-semibold text-colonial-navy">
+                  Building the Future Since 2010
                 </h2>
               </div>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm md:text-base lg:text-[16px] text-white/90 leading-relaxed md:leading-[24px] lg:leading-[26px] max-w-xl drop-shadow-lg">
+              <p className="text-xs sm:text-sm md:text-base lg:text-[16px] text-colonial-gray leading-relaxed md:leading-[24px] lg:leading-[26px] max-w-xl">
                 We don't just design solutions, we redefine possibilities. Our passionate, innovative teams partner with clients to turn challenges into bold, practical outcomes through cutting-edge BIM technology and precision engineering.
               </p>
 
@@ -219,7 +220,7 @@ export default function Index() {
                     const element = document.getElementById('site-visit');
                     element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }}
-                  className="px-5 sm:px-6 md:px-8 lg:px-[40px] py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-[20px] sm:rounded-[22px] md:rounded-[26px] lg:rounded-[28px] border-2 border-white/50 bg-white/10 backdrop-blur-sm text-white font-semibold text-xs sm:text-sm md:text-base lg:text-[15px] hover:bg-white/20 transition-colors"
+                  className="px-5 sm:px-6 md:px-8 lg:px-[40px] py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-[20px] sm:rounded-[22px] md:rounded-[26px] lg:rounded-[28px] border-2 border-colonial-navy bg-white text-colonial-navy font-semibold text-xs sm:text-sm md:text-base lg:text-[15px] hover:bg-colonial-navy hover:text-white transition-colors"
                 >
                   ▶ Watch Demo
                 </button>
@@ -229,10 +230,10 @@ export default function Index() {
             {/* 3D Building Model */}
             <div className="h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] mt-6 sm:mt-8 lg:mt-0 hidden sm:block">
               <Suspense fallback={
-                <div className="w-full h-full flex items-center justify-center bg-colonial-light-bg/10 backdrop-blur-sm rounded-lg">
+                <div className="w-full h-full flex items-center justify-center bg-gray-50 rounded-lg">
                   <div className="text-center">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 border-4 border-colonial-gold border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                    <p className="text-white/80 text-xs sm:text-sm">Loading 3D Model...</p>
+                    <p className="text-colonial-gray text-xs sm:text-sm">Loading 3D Model...</p>
                   </div>
                 </div>
               }>
@@ -275,21 +276,6 @@ export default function Index() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Construction Animation Section */}
-      <section className="relative bg-colonial-light-bg h-[80vh] sm:h-[100vh] md:h-[150vh] lg:h-[200vh]">
-        {/* Sticky Container */}
-        <div className="sticky top-0 h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-screen w-full overflow-hidden">
-          {/* Full Screen Animation */}
-          <FrameScrollAnimation
-            frameCount={80}
-            frameBasePath="/frames2"
-            framePrefix="frame_"
-            frameExtension=".jpg"
-            className="w-full h-full"
-          />
         </div>
       </section>
 
@@ -643,6 +629,57 @@ export default function Index() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-20 lg:py-24 bg-colonial-light-bg">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+          <div className="text-center mb-12 lg:mb-16">
+            <div className="text-colonial-blue font-bold text-sm tracking-[2px] mb-4">TESTIMONIALS</div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-colonial-navy mb-6">
+              What Our Clients Say
+            </h2>
+            <p className="text-lg text-colonial-gray max-w-3xl mx-auto">
+              Trusted by leading developers, architects, and engineering firms
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="bg-white p-8 md:p-10 rounded-[24px] shadow-md hover:shadow-xl transition-shadow">
+                {/* Rating Stars */}
+                <div className="flex gap-1 mb-6">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <span key={i} className="text-colonial-gold text-xl">★</span>
+                  ))}
+                </div>
+
+                {/* Testimonial Text */}
+                <p className="text-colonial-gray text-lg leading-relaxed mb-8 italic">
+                  "{testimonial.testimonial}"
+                </p>
+
+                {/* Client Info */}
+                <div className="border-t border-gray-200 pt-6">
+                  <div className="font-bold text-colonial-navy text-lg mb-1">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-colonial-blue text-sm mb-1">
+                    {testimonial.position}
+                  </div>
+                  <div className="text-colonial-gray text-sm">
+                    {testimonial.company}
+                  </div>
+                  {testimonial.project && (
+                    <div className="text-colonial-gold text-sm mt-2">
+                      Project: {testimonial.project}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

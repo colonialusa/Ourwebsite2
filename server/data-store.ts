@@ -20,6 +20,18 @@ const readJsonFile = (filename: string) => {
 let projects = readJsonFile('projects.json');
 let services = readJsonFile('services.json');
 let contacts = readJsonFile('contacts.json');
+let testimonials = readJsonFile('testimonials.json');
+
+export const readTestimonials = () => testimonials;
+export const writeTestimonials = (data: any) => {
+  testimonials = data;
+  try {
+    const filePath = path.join(process.cwd(), 'data', 'testimonials.json');
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.error('Failed to write testimonials:', error);
+  }
+};
 
 export const dataStore = {
   // Projects
