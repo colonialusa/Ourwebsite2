@@ -21,9 +21,53 @@ export default function OnsiteServices() {
         </div>
       </section>
 
-      {/* Overview Section */}
+      {/* Detailed Content Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
+          <div className="prose prose-lg max-w-none mb-16">
+            <h2 className="text-4xl font-bold text-colonial-navy mb-8">
+              Expert Construction Staking & Field Engineering Services
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Construction staking and onsite engineering services provide the critical link between design documents and physical construction, ensuring projects are built accurately according to plans and specifications. At Colonial Consultants, our experienced field crews deliver precise layout services, grade verification, and quality control inspection throughout the construction process. From initial site preparation through final as-built documentation, we provide the field engineering support contractors need to construct projects efficiently while maintaining quality and compliance with design intent.
+                </p>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Construction layout begins with establishing primary control networks that provide reference coordinates for all subsequent staking activities. Our survey crews set control points at strategic locations around construction sites using GPS/GNSS positioning and conventional surveying techniques. These control networks undergo rigorous accuracy verification through redundant measurements and network adjustments to ensure they meet project specifications. Contractors rely on these control points to verify equipment calibration and validate independent layout work throughout construction.
+                </p>
+              </div>
+              <div>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Building layout services encompass the complete range of horizontal and vertical staking required for structure construction. Our field engineers establish building corners, offset lines, and reference benchmarks that guide foundation excavation and construction. Column grids, wall lines, and floor elevation references ensure structural elements are positioned accurately in three-dimensional space. This precision staking minimizes costly rework and ensures building components fit together properly during construction. We employ robotic total stations and GPS equipment to achieve the centimeter-level accuracy required for modern construction projects.
+                </p>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Grading and earthwork services require continuous elevation monitoring and quality control to ensure site grades conform to design elevations and drainage patterns function as intended. Our field crews perform regular grade checks during mass grading operations, providing real-time feedback to equipment operators to maintain proper elevations and slopes. We verify subgrade elevations before pavement construction, check utility trench depths and slopes, and certify final grades meet design requirements. This proactive quality control approach prevents costly grade corrections and drainage failures.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 mb-12">
+              <h3 className="text-2xl font-bold text-colonial-navy mb-6">Utility Construction Layout Services</h3>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Underground utility construction demands precise horizontal and vertical control to ensure proper depths, slopes, and clearances. Our utility staking services include centerline layout for water mains, sanitary sewers, storm drains, and electrical conduits. We set offset stakes with cut/fill information to guide excavation equipment operators and verify trench depths meet design specifications. Manhole and structure locations receive precise horizontal positioning to ensure proper alignment with pipe networks. Our field crews coordinate closely with utility contractors to provide timely layout support that keeps construction on schedule.
+              </p>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Slope staking for pipe installations requires careful calculation of invert elevations accounting for pipe slopes, structure depths, and ground surface elevations. Our crews provide detailed stake information including horizontal offsets, cut/fill depths, and slope indicators that enable contractors to establish proper pipe grades. We perform intermediate grade checks during pipe laying to verify slopes meet design requirements and adjust as necessary to maintain proper flow characteristics. Final as-built surveys document actual installed positions and elevations for record purposes and future utility maintenance planning.
+              </p>
+            </div>
+
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-colonial-navy mb-6">Roadway and Site Development Staking</h3>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Transportation project staking encompasses roadway centerlines, offset references, vertical control for grading operations, and final pavement control. Our field crews establish centerline stations and offset points that guide earthwork contractors during mass grading operations. We provide cut/fill stakes indicating depths to design grade at regular intervals along roadway alignments. Slope stakes mark the limits of cut and fill slopes, enabling grading contractors to shape roadway embankments and excavations according to design cross-sections.
+              </p>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Curb and gutter layout requires precise horizontal and vertical control to ensure proper positioning, alignment, and drainage characteristics. We set alignment points and grade references that enable concrete contractors to construct curbs with smooth geometry and proper drainage slopes. Pavement edge stakes establish horizontal limits for asphalt or concrete placement. Final pavement surface control references guide paving operations to achieve design elevations and cross-slopes. Our comprehensive staking approach ensures roadway elements integrate properly to provide safe, functional transportation facilities.
+              </p>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-colonial-navy mb-6">

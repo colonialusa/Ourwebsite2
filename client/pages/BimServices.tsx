@@ -222,6 +222,100 @@ export default function BimServices() {
         </div>
       </section>
 
+      {/* Detailed BIM Overview Section */}
+      <section className="py-12 md:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+          <div className="prose prose-lg max-w-none">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-8">
+              Revolutionizing Construction with Building Information Modeling
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <p className="text-base text-[#2C3E50]/80 mb-4 leading-relaxed">
+                  Building Information Modeling (BIM) has transformed the architecture, engineering, and construction (AEC) industry by providing a comprehensive digital representation of physical and functional characteristics of buildings. At Colonial Consultants, we leverage state-of-the-art BIM technology to deliver superior project outcomes, enhanced collaboration, and significant cost savings throughout the project lifecycle.
+                </p>
+                <p className="text-base text-[#2C3E50]/80 mb-4 leading-relaxed">
+                  Our BIM services encompass the entire spectrum from initial conceptual modeling through construction documentation, coordination, and facility management. We create intelligent 3D models that integrate architectural, structural, and MEP (Mechanical, Electrical, and Plumbing) systems, enabling stakeholders to visualize, simulate, and analyze building performance before construction begins.
+                </p>
+              </div>
+              <div>
+                <p className="text-base text-[#2C3E50]/80 mb-4 leading-relaxed">
+                  The power of BIM lies in its ability to detect clashes and conflicts early in the design phase, reducing costly rework during construction. Our experienced BIM coordinators conduct rigorous clash detection analysis using industry-leading software platforms including Autodesk Revit, Navisworks, and BIM 360. This proactive approach has helped our clients avoid millions of dollars in change orders and schedule delays.
+                </p>
+                <p className="text-base text-[#2C3E50]/80 mb-4 leading-relaxed">
+                  Beyond 3D modeling, we implement 4D scheduling and 5D cost estimation to provide comprehensive project insights. By linking model elements to construction schedules and cost databases, we enable project teams to optimize construction sequences, identify resource constraints, and make data-driven decisions that improve project delivery efficiency.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-[#F5F7FA] rounded-xl p-8 mb-12">
+              <h3 className="text-2xl font-bold text-[#2C3E50] mb-6">Comprehensive BIM Modeling Services</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div>
+                  <h4 className="font-bold text-[#2C3E50] mb-3">Architectural BIM</h4>
+                  <p className="text-sm text-[#2C3E50]/70 leading-relaxed">
+                    Detailed 3D architectural models including walls, floors, roofs, windows, doors, and all building components with accurate geometry, materials, and specifications. Our models support design visualization, code compliance checking, and automated documentation generation.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#2C3E50] mb-3">Structural BIM</h4>
+                  <p className="text-sm text-[#2C3E50]/70 leading-relaxed">
+                    Comprehensive structural modeling of foundations, columns, beams, slabs, and connections with embedded engineering data. Models integrate with structural analysis software for load calculations and code compliance verification.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#2C3E50] mb-3">MEP Coordination</h4>
+                  <p className="text-sm text-[#2C3E50]/70 leading-relaxed">
+                    Detailed mechanical, electrical, and plumbing system models with accurate routing, sizing, and equipment specifications. Full coordination ensures constructability and optimal system performance.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-[#2C3E50] mb-6">Advanced BIM Capabilities</h3>
+              <p className="text-base text-[#2C3E50]/80 mb-4 leading-relaxed">
+                Our BIM expertise extends beyond traditional 3D modeling to encompass advanced capabilities that deliver maximum value throughout the project lifecycle. We implement Level of Development (LOD) standards ranging from LOD 100 (conceptual) to LOD 500 (as-built), ensuring appropriate model detail for each project phase. This progressive refinement approach optimizes modeling efficiency while meeting stakeholder information requirements.
+              </p>
+              <p className="text-base text-[#2C3E50]/80 mb-4 leading-relaxed">
+                Clash detection and resolution form a critical component of our BIM coordination process. Using Navisworks and BIM 360 Glue, we conduct comprehensive multi-discipline clash analysis, identifying thousands of potential conflicts before they impact construction. Our coordination meetings bring together architectural, structural, and MEP teams to resolve clashes collaboratively, producing fully coordinated construction documents that minimize field conflicts.
+              </p>
+              <p className="text-base text-[#2C3E50]/80 mb-4 leading-relaxed">
+                Quantity takeoff and cost estimation leverage the rich data embedded in BIM models. We extract accurate material quantities directly from model elements, eliminating manual measurement errors and accelerating estimation processes. This automated approach produces detailed quantity reports for concrete, steel, mechanical systems, and all building components, supporting precise cost control and procurement planning.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-gradient-to-br from-[#2C3E50] to-[#34495E] text-white rounded-xl p-8">
+                <h3 className="text-2xl font-bold mb-4">4D Construction Simulation</h3>
+                <p className="text-white/90 mb-4 leading-relaxed">
+                  Linking BIM models to construction schedules creates powerful 4D simulations that visualize project construction sequences over time. This capability enables contractors to optimize logistics, identify schedule conflicts, and communicate construction phasing to stakeholders effectively.
+                </p>
+                <ul className="space-y-2 text-white/80">
+                  <li>• Construction sequencing visualization</li>
+                  <li>• Site logistics planning</li>
+                  <li>• Schedule optimization</li>
+                  <li>• Stakeholder communication</li>
+                </ul>
+              </div>
+              <div className="bg-gradient-to-br from-[#3498DB] to-[#2980B9] text-white rounded-xl p-8">
+                <h3 className="text-2xl font-bold mb-4">5D Cost Management</h3>
+                <p className="text-white/90 mb-4 leading-relaxed">
+                  Integrating cost data with BIM models and schedules enables dynamic 5D cost management. Track project costs in real-time, analyze cost implications of design changes instantly, and maintain accurate budgets throughout the project lifecycle.
+                </p>
+                <ul className="space-y-2 text-white/80">
+                  <li>• Real-time cost tracking</li>
+                  <li>• Change order impact analysis</li>
+                  <li>• Budget forecasting</li>
+                  <li>• Value engineering support</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* BIM Consulting & Implementation Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-colonial-blue to-colonial-purple">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">

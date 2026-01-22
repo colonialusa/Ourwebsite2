@@ -35,6 +35,55 @@ export default function SitePlanning() {
         </div>
       </section>
 
+      {/* Detailed Content Section */}
+      <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+          <div className="prose prose-lg max-w-none mb-16">
+            <h2 className="text-4xl font-bold text-colonial-navy mb-8">
+              Comprehensive Site Planning & Development Design Services
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Site planning and development design transform raw land into functional, sustainable, and economically viable projects that serve community needs while respecting environmental resources. At Colonial Consultants, our multidisciplinary site planning team integrates civil engineering, landscape architecture, environmental science, and urban planning expertise to create comprehensive site designs that optimize land use, minimize development costs, and achieve regulatory compliance. From initial feasibility analysis through final construction documents, we guide clients through the complete site development process with technical excellence and creative problem-solving.
+                </p>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Successful site planning begins with thorough site analysis examining topography, soils, hydrology, vegetation, utilities, access, and regulatory constraints. Our planners conduct detailed investigations to understand site opportunities and limitations, identifying optimal development areas and features requiring protection or special consideration. This analytical foundation informs design decisions that work with natural site conditions rather than against them, reducing grading quantities, preserving valuable trees and natural features, and creating developments that integrate harmoniously with their surroundings.
+                </p>
+              </div>
+              <div>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Grading and drainage design form critical components of site development, establishing proper surface and subsurface drainage while minimizing earthwork quantities and costs. Our engineers utilize advanced civil design software to develop grading plans that balance cut and fill volumes, minimize building pad elevations, and create positive drainage away from structures. We design comprehensive stormwater management systems including storm sewers, detention basins, bioretention areas, and low-impact development features that manage runoff while meeting regulatory requirements and protecting water quality.
+                </p>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Utility infrastructure planning ensures adequate water supply, sanitary sewer capacity, stormwater management, and other essential services to support development. We coordinate with utility providers to verify service availability and design on-site distribution systems that deliver utilities efficiently to all development parcels. Our designs consider long-term maintenance access, system expandability, and integration with existing infrastructure networks. This comprehensive utility planning prevents costly redesigns and ensures developments receive essential services reliably and cost-effectively.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 mb-12">
+              <h3 className="text-2xl font-bold text-colonial-navy mb-6">Sustainable Site Design Principles</h3>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Environmental sustainability guides our site planning approach, incorporating green infrastructure, natural resource protection, and energy-efficient site design principles. We implement low-impact development (LID) techniques including permeable pavements, rain gardens, bioswales, and green roofs that manage stormwater naturally while reducing infrastructure costs. Native plantings reduce irrigation demands and maintenance requirements while providing habitat value. Site orientation and tree preservation strategies reduce building energy consumption through natural shading and wind protection.
+              </p>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Our sustainable design approach extends beyond environmental benefits to encompass economic and social sustainability. Compact development patterns reduce infrastructure extension costs and ongoing maintenance expenses. Mixed-use planning creates walkable communities that reduce vehicle dependence. Complete streets design accommodates pedestrians, bicyclists, and transit users alongside motorists. These sustainable design principles create developments that deliver long-term value while minimizing environmental impacts and operating costs.
+              </p>
+            </div>
+
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold text-colonial-navy mb-6">Regulatory Compliance & Permitting Support</h3>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Navigating complex regulatory requirements demands comprehensive knowledge of zoning ordinances, subdivision regulations, environmental protection laws, and building codes. Our planning team maintains current expertise in local, state, and federal regulations affecting site development. We conduct detailed zoning analysis to verify permitted uses, density calculations, setback requirements, and parking standards. Our designs comply with Americans with Disabilities Act (ADA) requirements, stormwater management regulations, environmental protection standards, and all applicable codes.
+              </p>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Permitting support services guide projects through complex approval processes efficiently. We prepare comprehensive permit applications including site plans, grading plans, stormwater management plans, and supporting technical documentation. Our team coordinates with regulatory agencies, responds to review comments, and obtains necessary approvals. This proactive permitting support accelerates project schedules and ensures designs meet all regulatory requirements without costly delays or redesigns. We maintain positive working relationships with review agencies that facilitate efficient permitting processes for our clients.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Site Planning Services Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">

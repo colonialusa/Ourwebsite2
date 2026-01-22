@@ -21,9 +21,43 @@ export default function SurveyFeasibility() {
         </div>
       </section>
 
-      {/* Overview Section */}
+      {/* Detailed Content Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
+          <div className="prose prose-lg max-w-none mb-16">
+            <h2 className="text-4xl font-bold text-colonial-navy mb-8">
+              Comprehensive Land Surveying & Feasibility Analysis for Project Success
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Professional land surveying and comprehensive feasibility studies form the essential foundation upon which successful development projects are built. At Colonial Consultants, we understand that accurate survey data and thorough feasibility analysis are critical prerequisites for informed decision-making, regulatory compliance, and project risk mitigation. Our multidisciplinary team of licensed surveyors, engineers, and analysts delivers the precise information and strategic insights needed to transform development concepts into viable, profitable reality.
+                </p>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Survey services encompass much more than simple boundary determination. Modern surveying integrates GPS/GNSS positioning, 3D laser scanning, aerial photogrammetry, and traditional total station measurements to capture comprehensive site data with unprecedented accuracy and efficiency. This multi-sensor approach enables us to document complex site conditions including topography, existing improvements, utilities, environmental features, and boundary evidence to support engineering design, permitting, and construction activities.
+                </p>
+              </div>
+              <div>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Feasibility studies provide the critical analysis framework for evaluating development opportunities and identifying potential constraints before significant capital commitments occur. Our comprehensive feasibility analysis examines market demand, regulatory requirements, site suitability, infrastructure capacity, environmental considerations, and financial viability to determine project feasibility and optimize development programs. This rigorous analytical approach helps clients make informed go/no-go decisions and refine project concepts to maximize success probability and return on investment.
+                </p>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  The integration of survey data with feasibility analysis creates powerful insights that shape successful development strategies. Accurate topographic information informs grading cost estimates, drainage design requirements, and access planning. Boundary surveys establish legal property limits and identify potential encroachments or easement issues. Environmental surveys document sensitive resources requiring protection or mitigation. Together, these data streams feed comprehensive feasibility models that quantify opportunities, constraints, costs, and risks with precision.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 mb-12">
+              <h3 className="text-2xl font-bold text-colonial-navy mb-6">Advanced Survey Technologies and Methodologies</h3>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Colonial Consultants maintains state-of-the-art survey equipment and employs the latest survey technologies to deliver superior data quality and project efficiency. Our fleet of survey-grade GPS/GNSS receivers provides centimeter-level positioning accuracy for control network establishment and large-scale topographic mapping. These satellite positioning systems enable rapid data collection over extensive areas while maintaining rigorous accuracy standards essential for engineering and legal applications.
+              </p>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                3D laser scanning technology revolutionizes complex structure documentation and as-built surveys. Our terrestrial laser scanners capture millions of precise measurements per second, creating detailed point clouds that document existing conditions with extraordinary completeness and accuracy. This technology excels at documenting industrial facilities, bridges, historic structures, and complex architectural features where traditional survey methods prove time-consuming or physically challenging. Point cloud data integrates seamlessly with BIM and CAD platforms for design and analysis purposes.
+              </p>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-colonial-navy mb-6">

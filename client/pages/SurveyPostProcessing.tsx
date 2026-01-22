@@ -21,9 +21,43 @@ export default function SurveyPostProcessing() {
         </div>
       </section>
 
-      {/* Overview Section */}
+      {/* Detailed Content Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
+          <div className="prose prose-lg max-w-none mb-16">
+            <h2 className="text-4xl font-bold text-colonial-navy mb-8">
+              Professional Survey Data Processing & CAD Drafting Excellence
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Survey post-processing and professional CAD drafting transform raw field measurements into accurate, legally defensible deliverables that support engineering design, construction, property transactions, and regulatory compliance. At Colonial Consultants, our experienced survey technicians and CAD specialists utilize industry-leading software platforms and rigorous quality control procedures to produce precise survey plats, topographic maps, and construction documents that meet or exceed client specifications and professional standards.
+                </p>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Modern survey data processing involves sophisticated mathematical computations including coordinate transformations, network adjustments, and geoid modeling to achieve centimeter-level accuracy. GPS/GNSS data requires careful processing to resolve satellite ambiguities, apply atmospheric corrections, and establish precise coordinates relative to geodetic control networks. Total station data undergoes rigorous error checking, closure analysis, and adjustment to ensure angular and distance measurements meet specification requirements. Our processing workflows incorporate redundant measurements and statistical validation to detect and eliminate errors before data enters the drafting phase.
+                </p>
+              </div>
+              <div>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  Point cloud processing represents a specialized discipline within survey data management, requiring advanced software tools and significant computational resources. LiDAR point clouds may contain billions of measurements that require classification, filtering, and feature extraction to create usable deliverables. Our technicians employ automated classification algorithms combined with manual editing to separate ground points from vegetation, buildings, and other above-ground features. This cleaned terrain data forms the foundation for digital terrain models, contour maps, and volumetric calculations supporting engineering design and earthwork quantity estimation.
+                </p>
+                <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                  CAD drafting transforms processed survey data into clear, professional drawings that communicate spatial relationships, boundary evidence, and topographic features to project stakeholders. Our CAD specialists adhere to rigorous drafting standards including state-specific requirements, client CAD standards, and industry best practices. Every drawing undergoes multiple quality control reviews to verify accuracy, completeness, clarity, and compliance with applicable standards. This attention to detail ensures deliverables support their intended uses including permitting, construction, litigation, and property transactions without ambiguity or error.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 mb-12">
+              <h3 className="text-2xl font-bold text-colonial-navy mb-6">GPS Network Processing & Coordinate Systems</h3>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                GPS network adjustments require specialized knowledge of geodetic principles, coordinate systems, and statistical analysis. Our survey processors utilize professional-grade adjustment software including Trimble Business Center, Leica Infinity, and Topcon Magnet Office to process multi-station GPS networks. These least-squares adjustment procedures compute optimal coordinates that honor observed measurements while distributing residual errors according to measurement precision. Network adjustments provide statistical quality metrics including standard deviations, confidence ellipses, and network reliability indicators that validate positioning accuracy.
+              </p>
+              <p className="text-base text-colonial-gray mb-4 leading-relaxed">
+                Coordinate transformation between different reference systems presents technical challenges requiring careful attention to datum definitions, projection parameters, and geoid models. State plane coordinate systems, UTM zones, and local coordinate systems each serve specific purposes and require appropriate transformation procedures. Our processors maintain current geoid models and transformation parameters to ensure coordinates integrate properly with existing control networks and GIS databases. This technical expertise ensures survey deliverables align with project requirements and integrate seamlessly with other spatial data sources.
+              </p>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-colonial-navy mb-6">
