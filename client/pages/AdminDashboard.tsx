@@ -120,6 +120,16 @@ export default function AdminDashboard() {
           </Link>
 
           <Link
+            to="/admin/case-studies"
+            className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div className="text-4xl mb-4">📖</div>
+            <h3 className="text-xl font-bold text-colonial-navy mb-2">Project Case Studies</h3>
+            <p className="text-colonial-gray mb-4">Manage detailed case studies for projects</p>
+            <span className="text-colonial-blue font-semibold">Manage →</span>
+          </Link>
+
+          <Link
             to="/admin/about"
             className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
           >

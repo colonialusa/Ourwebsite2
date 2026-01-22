@@ -24,6 +24,8 @@ import AdminProjects from "./pages/AdminProjects";
 import AdminServices from "./pages/AdminServices";
 import AdminContacts from "./pages/AdminContacts";
 import AdminTestimonials from "./pages/AdminTestimonials";
+import AdminProjectCaseStudy from "./pages/AdminProjectCaseStudy";
+import ProjectCaseStudy from "./pages/ProjectCaseStudy";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/services/:id" element={<ServiceDetail />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<ProjectCaseStudy />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/survey-feasibility" element={<SurveyFeasibility />} />
@@ -59,6 +62,7 @@ const App = () => (
           <Route path="/admin/services" element={<AdminServices />} />
           <Route path="/admin/contacts" element={<AdminContacts />} />
           <Route path="/admin/testimonials" element={<AdminTestimonials />} />
+          <Route path="/admin/case-studies" element={<AdminProjectCaseStudy />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

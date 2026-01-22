@@ -6,7 +6,64 @@
     "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
     "category": "Residential",
     "location": "San Francisco, CA",
-    "completionDate": "2024-06-15"
+    "completionDate": "2024-06-15",
+    "projectSize": "300 units, 450,000 sq ft",
+    "client": "Harbor Development Group",
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+        "caption": "Stunning waterfront exterior view"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
+        "caption": "Modern lobby and amenity spaces"
+      }
+    ],
+    "caseStudy": {
+      "challenge": "The project required integrating luxury residential living with strict waterfront development regulations while maintaining environmental sustainability and maximizing harbor views for residents.",
+      "solution": "Our team designed a terraced structure that stepped back from the waterfront, providing unobstructed views while meeting setback requirements. We incorporated green building practices including rainwater harvesting, solar panels, and native landscaping.",
+      "results": [
+        "100% occupancy within 6 months of completion",
+        "LEED Gold certification achieved",
+        "20% reduction in energy consumption vs. comparable developments",
+        "Featured in Architectural Digest for sustainable luxury design"
+      ],
+      "keyFeatures": [
+        "Rooftop infinity pool with panoramic harbor views",
+        "Underground parking with EV charging stations",
+        "24/7 concierge and security services",
+        "State-of-the-art fitness center and spa",
+        "Private resident marina access",
+        "Smart home automation in all units"
+      ],
+      "timeline": [
+        {
+          "phase": "Design & Permitting",
+          "duration": "8 months",
+          "description": "Comprehensive design development, environmental reviews, and regulatory approvals"
+        },
+        {
+          "phase": "Foundation & Structure",
+          "duration": "10 months",
+          "description": "Waterfront foundation systems and structural steel erection"
+        },
+        {
+          "phase": "MEP & Interior Finishes",
+          "duration": "12 months",
+          "description": "Mechanical, electrical, plumbing systems and luxury interior finishes"
+        },
+        {
+          "phase": "Landscaping & Amenities",
+          "duration": "4 months",
+          "description": "Rooftop gardens, amenity spaces, and waterfront promenade completion"
+        }
+      ],
+      "testimonial": {
+        "quote": "Colonial Consultants transformed our vision into reality. Their expertise in waterfront development and sustainable design created a landmark property that exceeds all expectations.",
+        "author": "James Morrison",
+        "position": "CEO, Harbor Development Group"
+      }
+    }
   },
   {
     "id": "1736665200002",

@@ -145,9 +145,12 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  <button className="w-full mt-4 px-6 py-3 rounded-[20px] bg-colonial-navy text-colonial-gold font-semibold hover:bg-colonial-navy/90 transition-colors">
+                  <Link 
+                    to={`/projects/${project.id}`}
+                    className="block w-full mt-4 px-6 py-3 rounded-[20px] bg-colonial-navy text-colonial-gold font-semibold hover:bg-colonial-navy/90 transition-colors text-center"
+                  >
                     View Case Study →
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
