@@ -102,6 +102,14 @@ export default function AdminProjectCaseStudy() {
 
     setSaving(true);
     try {
+      // Get token from localStorage
+      const token = localStorage.getItem('adminToken');
+      if (!token) {
+        alert('Please login again');
+        navigate('/admin/login');
+        return;
+      }
+
       const updatedProject = {
         ...selectedProject,
         projectSize,
@@ -118,19 +126,25 @@ export default function AdminProjectCaseStudy() {
         }
       };
 
-      const response = await fetch(`/api/projects/${selectedProject.id}`, {
+      const response = await fetch(`/api/admin/projects/${selectedProject.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify(updatedProject)
       });
 
       if (response.ok) {
         alert('Case study updated successfully!');
         fetchProjects();
+      } else {
+        const error = await response.text();
+        alert(`Failed to save: ${error}`);
       }
     } catch (error) {
       console.error('Failed to save:', error);
-      alert('Failed to save case study');
+      alert('Failed to save case study. Please try again.');
     } finally {
       setSaving(false);
     }

@@ -57,7 +57,6 @@ export function createServer() {
   app.get("/api/admin/projects", verifyToken, handleGetProjects);
   app.post("/api/admin/projects", verifyToken, handleCreateProject);
   app.put("/api/admin/projects/:id", verifyToken, handleUpdateProject);
-  app.put("/api/projects/:id", verifyToken, handleUpdateProject); // Public PUT for case studies
   app.delete("/api/admin/projects/:id", verifyToken, handleDeleteProject);
   
   // Services
