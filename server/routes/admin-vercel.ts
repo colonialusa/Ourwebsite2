@@ -1,5 +1,6 @@
 import { RequestHandler } from "express";
 import { dataStore } from "../data-store";
+import { sendContactEmail } from "../email-service";
 
 // Simple auth middleware
 export const verifyToken: RequestHandler = (req, res, next) => {
@@ -25,8 +26,18 @@ export const verifyToken: RequestHandler = (req, res, next) => {
 export const handleLogin: RequestHandler = (req, res) => {
   const { username, password } = req.body;
   
-  // Simple credentials (in production, use proper auth)
-  if (username === 'admin' && password === 'admin123') {
+  // Valid admin credentials
+  const validCredentials = [
+    { username: 'Colonial', password: 'Colonial@2026' },
+    { username: 'Pyrunai', password: 'Pyrunai@1234' }
+  ];
+
+  // Check if credentials match any valid user
+  const isValidUser = validCredentials.some(
+    cred => cred.username === username && cred.password === password
+  );
+
+  if (isValidUser) {
     res.json({ 
       success: true, 
       token: 'admin-token-123',
@@ -155,6 +166,13 @@ export const handleDeleteService: RequestHandler = async (req, res) => {
 export const handleContactSubmission: RequestHandler = async (req, res) => {
   try {
     const newContact = dataStore.createContact(req.body);
+    
+    // Send email notification (non-blocking)
+    sendContactEmail(req.body).catch(err => {
+      console.error('Email sending failed:', err);
+      // Don't fail the request if email fails
+    });
+    
     res.json({ success: true, contact: newContact });
   } catch (error) {
     res.status(500).json({ error: 'Failed to submit contact form' });
@@ -168,5 +186,57 @@ export const handleGetContacts: RequestHandler = async (req, res) => {
     res.json(contacts);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch contacts' });
+  }
+};
+
+// Team CRUD
+export const handleGetTeam: RequestHandler = async (req, res) => {
+  try {
+    const team = dataStore.getTeam();
+    res.json(team);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch team' });
+  }
+};
+
+export const handleCreateTeamMember: RequestHandler = async (req, res) => {
+  try {
+    const { id, ...memberData } = req.body;
+    const newMember = dataStore.createTeamMember(memberData);
+    res.json(newMember);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to create team member' });
+  }
+};
+
+export const handleUpdateTeamMember: RequestHandler = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updated = dataStore.updateTeamMember(id, req.body);
+    
+    if (!updated) {
+      res.status(404).json({ error: 'Team member not found' });
+      return;
+    }
+    
+    res.json(updated);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update team member' });
+  }
+};
+
+export const handleDeleteTeamMember: RequestHandler = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = dataStore.deleteTeamMember(id);
+    
+    if (!deleted) {
+      res.status(404).json({ error: 'Team member not found' });
+      return;
+    }
+    
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete team member' });
   }
 };

@@ -24,6 +24,29 @@ export default function Navigation() {
     }, 50);
   };
 
+  const handleContactClick = () => {
+    setIsMobileMenuOpen(false);
+    
+    // If we're already on the home page, scroll to contact
+    if (location.pathname === '/') {
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      // Navigate to home page first, then scroll to contact
+      navigate('/');
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  };
+
   return (
     <>
       {/* Expertise Modal */}
@@ -39,7 +62,7 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link to="/">
               <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/9178f14664a332d98928a8d74f4bfbf96ad1fa80?width=270" 
+                src="/images/Colonial Consultants LOGO.svg" 
                 alt="Colonial Consultants Logo" 
                 className="h-[40px] md:h-[45px] lg:h-[50px] w-auto"
               />
@@ -94,12 +117,12 @@ export default function Navigation() {
             >
               About
             </Link>
-            <a
-              href="/#contact" 
+            <button
+              onClick={handleContactClick}
               className="px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg text-colonial-gray font-normal text-sm xl:text-[15px] hover:bg-gray-50 transition-colors"
             >
               Contact
-            </a>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -114,12 +137,12 @@ export default function Navigation() {
           </button>
 
           {/* Get Quote Button - Hidden on small mobile */}
-          <a 
-            href="/#contact" 
+          <button
+            onClick={handleContactClick}
             className="hidden sm:block px-6 md:px-8 lg:px-10 xl:px-[45px] py-3 md:py-3.5 lg:py-4 rounded-[20px] md:rounded-[22px] lg:rounded-[25px] bg-colonial-navy text-colonial-gold font-semibold text-sm md:text-[15px] hover:bg-colonial-navy/90 transition-colors"
           >
             Get Quote
-          </a>
+          </button>
         </div>
       </header>
 
@@ -236,14 +259,12 @@ export default function Navigation() {
                 onTouchEnd={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => window.location.href = '/#contact', 50);
+                  handleContactClick();
                 }}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => window.location.href = '/#contact', 50);
+                  handleContactClick();
                 }}
                 className="px-6 py-4 text-colonial-gray font-normal text-base active:bg-gray-100 cursor-pointer"
                 style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}
@@ -255,14 +276,12 @@ export default function Navigation() {
                 onTouchEnd={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => window.location.href = '/#contact', 50);
+                  handleContactClick();
                 }}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => window.location.href = '/#contact', 50);
+                  handleContactClick();
                 }}
                 className="sm:hidden mx-4 my-4 px-6 py-3 rounded-[20px] bg-colonial-navy text-colonial-gold font-semibold text-sm active:bg-colonial-navy/80 transition-colors text-center cursor-pointer"
                 style={{ userSelect: 'none', WebkitUserSelect: 'none', WebkitTapHighlightColor: 'rgba(0,0,0,0)', pointerEvents: 'auto' }}

@@ -21,6 +21,7 @@ let projects = readJsonFile('projects.json');
 let services = readJsonFile('services.json');
 let contacts = readJsonFile('contacts.json');
 let testimonials = readJsonFile('testimonials.json');
+let team = readJsonFile('team.json');
 
 export const readTestimonials = () => testimonials;
 export const writeTestimonials = (data: any) => {
@@ -80,6 +81,26 @@ export const dataStore = {
     const newContact = { ...contact, id: Date.now().toString() };
     contacts.push(newContact);
     return newContact;
+  },
+
+  // Team
+  getTeam: () => team,
+  createTeamMember: (member: any) => {
+    const newMember = { ...member, id: Date.now().toString() };
+    team.push(newMember);
+    return newMember;
+  },
+  updateTeamMember: (id: string, data: any) => {
+    const index = team.findIndex(t => t.id === id);
+    if (index === -1) return null;
+    team[index] = { ...team[index], ...data, id };
+    return team[index];
+  },
+  deleteTeamMember: (id: string) => {
+    const index = team.findIndex(t => t.id === id);
+    if (index === -1) return false;
+    team.splice(index, 1);
+    return true;
   },
 
   // Stats

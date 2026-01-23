@@ -23,6 +23,10 @@ import {
   handleDeleteService,
   handleContactSubmission,
   handleGetContacts,
+  handleGetTeam,
+  handleCreateTeamMember,
+  handleUpdateTeamMember,
+  handleDeleteTeamMember,
   verifyToken
 } from "./routes/admin-vercel";
 
@@ -76,6 +80,12 @@ export function createServer() {
   app.post("/api/admin/testimonials", verifyToken, handleCreateTestimonial);
   app.put("/api/admin/testimonials/:id", verifyToken, handleUpdateTestimonial);
   app.delete("/api/admin/testimonials/:id", verifyToken, handleDeleteTestimonial);
+
+  // Team
+  app.get("/api/admin/team", handleGetTeam);
+  app.post("/api/admin/team", verifyToken, handleCreateTeamMember);
+  app.put("/api/admin/team/:id", verifyToken, handleUpdateTeamMember);
+  app.delete("/api/admin/team/:id", verifyToken, handleDeleteTeamMember);
 
   return app;
 }

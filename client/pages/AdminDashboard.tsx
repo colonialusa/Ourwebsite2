@@ -37,7 +37,7 @@ export default function AdminDashboard() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <img 
-              src="https://api.builder.io/api/v1/image/assets/TEMP/9178f14664a332d98928a8d74f4bfbf96ad1fa80?width=270" 
+              src="/images/Colonial Consultants LOGO.svg" 
               alt="Logo" 
               className="h-10"
             />
@@ -126,6 +126,16 @@ export default function AdminDashboard() {
             <div className="text-4xl mb-4">📖</div>
             <h3 className="text-xl font-bold text-colonial-navy mb-2">Project Case Studies</h3>
             <p className="text-colonial-gray mb-4">Manage detailed case studies for projects</p>
+            <span className="text-colonial-blue font-semibold">Manage →</span>
+          </Link>
+
+          <Link
+            to="/admin/team"
+            className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div className="text-4xl mb-4">👥</div>
+            <h3 className="text-xl font-bold text-colonial-navy mb-2">Manage Team</h3>
+            <p className="text-colonial-gray mb-4">Add, edit, or delete team members</p>
             <span className="text-colonial-blue font-semibold">Manage →</span>
           </Link>
 

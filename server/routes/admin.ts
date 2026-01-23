@@ -63,8 +63,18 @@ initializeData();
 export const handleLogin: RequestHandler = (req, res) => {
   const { username, password } = req.body;
   
-  // Simple credentials (in production, use proper auth)
-  if (username === 'admin' && password === 'admin123') {
+  // Valid admin credentials
+  const validCredentials = [
+    { username: 'Colonial', password: 'Colonial@2026' },
+    { username: 'Pyrunai', password: 'Pyrunai@1234' }
+  ];
+
+  // Check if credentials match any valid user
+  const isValidUser = validCredentials.some(
+    cred => cred.username === username && cred.password === password
+  );
+
+  if (isValidUser) {
     res.json({ 
       success: true, 
       token: 'admin-token-123',

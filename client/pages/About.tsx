@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import Navigation from "@/components/Navigation";
 
+interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  tagline: string;
+  image: string;
+}
+
 // Counter animation hook
 function useCountUp(end: number, duration: number = 2000, suffix: string = "") {
   const [count, setCount] = useState(0);
@@ -57,10 +65,28 @@ function useCountUp(end: number, duration: number = 2000, suffix: string = "") {
 }
 
 export default function About() {
+  const [team, setTeam] = useState<TeamMember[]>([]);
+  
   const projectsCounter = useCountUp(40, 2000, "+");
   const teamCounter = useCountUp(15, 2000, "+");
   const yearsCounter = useCountUp(15, 2000, "+");
   const satisfactionCounter = useCountUp(100, 2000, "%");
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      try {
+        const response = await fetch('/api/admin/team');
+        if (response.ok) {
+          const data = await response.json();
+          setTeam(data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch team:', error);
+      }
+    };
+    
+    fetchTeam();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -153,6 +179,46 @@ export default function About() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Our Team Section */}
+      <section className="py-16 md:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+          <div className="text-center mb-12">
+            <div className="text-colonial-blue font-bold text-xl md:text-2xl tracking-[2px] mb-4">OUR TEAM</div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-colonial-navy mb-6">
+              Meet the Experts
+            </h2>
+            <p className="text-lg text-colonial-gray max-w-3xl mx-auto">
+              Our dedicated team of professionals brings together decades of experience in engineering, architecture, and project management.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {team.map((member) => (
+              <div key={member.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="h-64 overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-colonial-navy mb-2">{member.name}</h3>
+                  <p className="text-colonial-gold font-semibold mb-3">{member.role}</p>
+                  <p className="text-gray-600 leading-relaxed">{member.tagline}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {team.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">No team members to display yet.</p>
+            </div>
+          )}
         </div>
       </section>
 

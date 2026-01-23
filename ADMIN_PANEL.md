@@ -7,11 +7,13 @@ The admin panel allows the website owner to manage projects, services, and conta
 ## Access
 
 - **Login URL**: http://localhost:8081/admin/login
-- **Default Credentials**:
-  - Username: `admin`
-  - Password: `admin123`
+- **Admin Credentials**:
+  - **User 1**: `Colonial` / `Colonial@2026`
+  - **User 2**: `Pyrunai` / `Pyrunai@1234`
 
-**⚠️ IMPORTANT**: Change these credentials in production by modifying `server/routes/admin.ts`
+  <!-- gmail password - "Colonial@1234" -->
+
+**⚠️ IMPORTANT**: These credentials are configured in `server/routes/admin.ts` and `server/routes/admin-vercel.ts`
 
 ## Features
 
@@ -147,7 +149,7 @@ ADMIN_PASSWORD_HASH=hashed-password
 ## Troubleshooting
 
 ### Cannot login
-- Check that credentials are exactly: `admin` / `admin123`
+- Verify you're using valid credentials (Colonial/Colonial@2026 or Pyrunai/Pyrunai@1234)
 - Check browser console for errors
 - Ensure server is running
 

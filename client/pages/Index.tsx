@@ -169,18 +169,16 @@ export default function Index() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[100svh] pt-[80px] sm:pt-[100px] md:pt-[120px] lg:pt-[140px] pb-8 sm:pb-12 md:pb-16 lg:pb-20 overflow-hidden">
+      <section className="relative min-h-[100svh] pt-[40px] sm:pt-[50px] md:pt-[60px] lg:pt-[70px] pb-8 sm:pb-12 md:pb-16 lg:pb-20 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="/images/5566286.jpg" 
+            src="/video/image122.png" 
             alt="Background"
             loading="eager"
             fetchPriority="high"
             className="w-full h-full object-cover object-center"
           />
-          {/* Light overlay for better text readability */}
-          <div className="absolute inset-0 bg-white/40"></div>
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
@@ -189,24 +187,24 @@ export default function Index() {
             <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10">
               {/* Badge */}
               <div className="inline-flex items-center px-4 sm:px-5 md:px-6 lg:px-[25px] py-2 sm:py-2.5 md:py-3 rounded-[14px] sm:rounded-[16px] md:rounded-[18px] lg:rounded-[20px] border border-colonial-gold bg-colonial-gold/10">
-                <span className="text-colonial-navy font-semibold text-[11px] sm:text-xs md:text-[13px]">
+                <span className="text-black font-semibold text-[11px] sm:text-xs md:text-[13px]">
                   ✦ 15+ Years Excellence
                 </span>
               </div>
 
               {/* Main Heading */}
               <div className="space-y-2 md:space-y-3">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-colonial-navy leading-tight md:leading-[1.1] lg:leading-[62px]">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-black leading-tight md:leading-[1.1] lg:leading-[62px]">
                   Engineering Excellence
                 </h1>
                 <div className="w-[100px] sm:w-[140px] md:w-[180px] lg:w-[200px] h-[8px] sm:h-[10px] md:h-[12px] lg:h-[14px] bg-colonial-gold rounded-[3px] shadow-lg" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-semibold text-colonial-navy">
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-semibold text-black">
                   Building the Future Since 2010
                 </h2>
               </div>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm md:text-base lg:text-[16px] text-colonial-gray leading-relaxed md:leading-[24px] lg:leading-[26px] max-w-xl">
+              <p className="text-xs sm:text-sm md:text-base lg:text-[16px] text-black leading-relaxed md:leading-[24px] lg:leading-[26px] max-w-xl">
                 We don't just design solutions, we redefine possibilities. Our passionate, innovative teams partner with clients to turn challenges into bold, practical outcomes through cutting-edge BIM technology and precision engineering.
               </p>
 
@@ -1141,7 +1139,7 @@ export default function Index() {
             {/* Logo and Description */}
             <div className="lg:col-span-2">
               <img 
-                src="https://api.builder.io/api/v1/image/assets/TEMP/9178f14664a332d98928a8d74f4bfbf96ad1fa80?width=270" 
+                src="/images/Colonial Consultants LOGO.svg" 
                 alt="Colonial Consultants Logo" 
                 className="h-12 mb-4 brightness-0 invert"
               />

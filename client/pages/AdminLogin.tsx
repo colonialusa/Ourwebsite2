@@ -33,7 +33,7 @@ export default function AdminLogin() {
       <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8">
         <div className="text-center mb-8">
           <img 
-            src="https://api.builder.io/api/v1/image/assets/TEMP/9178f14664a332d98928a8d74f4bfbf96ad1fa80?width=270" 
+            src="/images/Colonial Consultants LOGO.svg" 
             alt="Colonial Consultants Logo" 
             className="h-12 mx-auto mb-4"
           />
@@ -83,10 +83,6 @@ export default function AdminLogin() {
             Sign In
           </button>
         </form>
-
-        <p className="mt-6 text-center text-sm text-colonial-gray">
-          Default: admin / admin123
-        </p>
       </div>
     </div>
   );

@@ -24,6 +24,7 @@ import AdminProjects from "./pages/AdminProjects";
 import AdminServices from "./pages/AdminServices";
 import AdminContacts from "./pages/AdminContacts";
 import AdminTestimonials from "./pages/AdminTestimonials";
+import AdminTeam from "./pages/AdminTeam";
 import AdminProjectCaseStudy from "./pages/AdminProjectCaseStudy";
 import ProjectCaseStudy from "./pages/ProjectCaseStudy";
 
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="/admin/services" element={<AdminServices />} />
           <Route path="/admin/contacts" element={<AdminContacts />} />
           <Route path="/admin/testimonials" element={<AdminTestimonials />} />
+          <Route path="/admin/team" element={<AdminTeam />} />
           <Route path="/admin/case-studies" element={<AdminProjectCaseStudy />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
