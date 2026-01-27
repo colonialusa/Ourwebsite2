@@ -14,7 +14,8 @@ export const verifyToken: RequestHandler = (req, res, next) => {
   const token = authHeader.substring(7);
   
   // Simple token validation (in production, use JWT)
-  if (token !== 'admin-token-123') {
+  const expectedToken = process.env.ADMIN_TOKEN || 'admin-token-123';
+  if (token !== expectedToken) {
     res.status(401).json({ error: 'Invalid token' });
     return;
   }
@@ -26,10 +27,16 @@ export const verifyToken: RequestHandler = (req, res, next) => {
 export const handleLogin: RequestHandler = (req, res) => {
   const { username, password } = req.body;
   
-  // Valid admin credentials
+  // Valid admin credentials from environment variables
   const validCredentials = [
-    { username: 'Colonial', password: 'Colonial@2026' },
-    { username: 'Pyrunai', password: 'Pyrunai@1234' }
+    { 
+      username: process.env.ADMIN_USERNAME_1 || 'Colonial', 
+      password: process.env.ADMIN_PASSWORD_1 || 'Colonial@2026' 
+    },
+    { 
+      username: process.env.ADMIN_USERNAME_2 || 'Pyrunai', 
+      password: process.env.ADMIN_PASSWORD_2 || 'Pyrunai@1234' 
+    }
   ];
 
   // Check if credentials match any valid user
@@ -39,7 +46,7 @@ export const handleLogin: RequestHandler = (req, res) => {
 
   if (isValidUser) {
     res.json({ 
-      success: true, 
+      successprocess.env.ADMIN_TOKEN || : true, 
       token: 'admin-token-123',
       message: 'Login successful' 
     });
