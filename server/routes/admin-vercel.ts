@@ -46,8 +46,8 @@ export const handleLogin: RequestHandler = (req, res) => {
 
   if (isValidUser) {
     res.json({ 
-      successprocess.env.ADMIN_TOKEN || : true, 
-      token: 'admin-token-123',
+      success: true, 
+      token: process.env.ADMIN_TOKEN || 'admin-token-123',
       message: 'Login successful' 
     });
   } else {
