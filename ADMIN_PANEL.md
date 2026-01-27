@@ -17,6 +17,7 @@ The admin panel allows the website owner to manage projects, services, and conta
 
 ## Features
 
+
 ### 1. Dashboard (`/admin/dashboard`)
 - View statistics:
   - Total projects
