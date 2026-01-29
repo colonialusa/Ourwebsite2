@@ -23,13 +23,8 @@ const createTransporter = () => {
 
 // Determine recipient based on service
 const getRecipientEmail = (service: string): string => {
-  // BIM services go to Sanket
-  if (service.toLowerCase() === 'bim' || service.toLowerCase().includes('bim')) {
-    return 'Sanket@colonialconsultantsusa.com';
-  }
-  
-  // All other services go to Yogi
-  return 'Yogi@colonialconsultantsusa.com';
+  // All services go to Aditi
+  return 'aditi@colonialconsultantsusa.com';
 };
 
 // Send email notification

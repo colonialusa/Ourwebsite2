@@ -114,68 +114,71 @@ export default function About() {
         </div>
       </section>
 
+      {/* Stats Section - Moved Up */}
+      <section className="py-16 md:py-20 lg:py-24 bg-colonial-light-bg">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div ref={projectsCounter.ref} className="bg-white p-8 rounded-[20px] border border-colonial-border text-center">
+              <div className="text-5xl font-bold text-colonial-navy mb-2">{projectsCounter.displayValue}</div>
+              <div className="text-colonial-gray">Projects Completed</div>
+            </div>
+            <div ref={teamCounter.ref} className="bg-white p-8 rounded-[20px] border border-colonial-border text-center">
+              <div className="text-5xl font-bold text-colonial-navy mb-2">{teamCounter.displayValue}</div>
+              <div className="text-colonial-gray">Expert Team Members</div>
+            </div>
+            <div ref={yearsCounter.ref} className="bg-white p-8 rounded-[20px] border border-colonial-border text-center">
+              <div className="text-5xl font-bold text-colonial-navy mb-2">{yearsCounter.displayValue}</div>
+              <div className="text-colonial-gray">Years Experience</div>
+            </div>
+            <div ref={satisfactionCounter.ref} className="bg-white p-8 rounded-[20px] border border-colonial-border text-center">
+              <div className="text-5xl font-bold text-colonial-navy mb-2">{satisfactionCounter.displayValue}</div>
+              <div className="text-colonial-gray">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Story Section */}
       <section className="py-16 md:py-20 lg:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <div className="text-colonial-blue font-bold text-xl md:text-2xl tracking-[2px] mb-6">ABOUT US</div>
-              <div className="space-y-4 text-lg text-colonial-gray leading-relaxed">
-                <p>
-                  Colonial Consultants is built on an old-school idea. Do what you say you'll do, stand behind your work, and treat relationships like they matter.
-                </p>
-                <p>
-                  We support land development projects with a simple goal: move work forward with fewer surprises. That means clear scope, clean deliverables, and communication that doesn't disappear when things get messy. We bring 10 years of civil engineering experience and 8 years of delivery-focused support, backed by licensed professional engineers, and we stay engaged through comment responses and closeout so projects don't stall at the finish line.
-                </p>
-              </div>
-
-              {/* Additional Info Sections */}
-              <div className="mt-8 space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-colonial-navy mb-2">
-                    Local field support. Williamsburg and surrounding area
-                  </h3>
-                  <p className="text-base text-colonial-gray leading-relaxed">
-                    Site work support, coordination, punchlist completion, and fine grading across large areas.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-colonial-navy mb-2">
-                    Nationwide engineering support. Remote friendly
-                  </h3>
-                  <p className="text-base text-colonial-gray leading-relaxed">
-                    Land development documentation and analysis, including survey data post-processing, plan set support, traffic impact support, turn lane warrant evaluations, and parking demand studies.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-colonial-navy mb-2">
-                    Professional responsibility
-                  </h3>
-                  <p className="text-base text-colonial-gray leading-relaxed">
-                    Our work is supported by licensed professional engineers. When sealing is required, plans and calculations are prepared and sealed by appropriately licensed professionals.
-                  </p>
-                </div>
-              </div>
+          <div>
+            <div className="text-colonial-blue font-bold text-xl md:text-2xl tracking-[2px] mb-6">ABOUT US</div>
+            <div className="space-y-4 text-lg text-colonial-gray leading-relaxed max-w-none">
+              <p>
+                Colonial Consultants is built on an old-school idea. Do what you say you'll do, stand behind your work, and treat relationships like they matter.
+              </p>
+              <p>
+                We support land development projects with a simple goal: move work forward with fewer surprises. That means clear scope, clean deliverables, and communication that doesn't disappear when things get messy. We bring 10 years of civil engineering experience and 8 years of delivery-focused support, backed by licensed professional engineers, and we stay engaged through comment responses and closeout so projects don't stall at the finish line.
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div ref={projectsCounter.ref} className="bg-colonial-blue/5 p-8 rounded-[20px] border border-colonial-border">
-                <div className="text-5xl font-bold text-colonial-navy mb-2">{projectsCounter.displayValue}</div>
-                <div className="text-colonial-gray">Projects Completed</div>
+            {/* Additional Info Sections */}
+            <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div>
+                <h3 className="text-xl font-bold text-colonial-navy mb-2">
+                  Local field support. Williamsburg and surrounding area
+                </h3>
+                <p className="text-base text-colonial-gray leading-relaxed">
+                  Site work support, coordination, punchlist completion, and fine grading across large areas.
+                </p>
               </div>
-              <div ref={teamCounter.ref} className="bg-colonial-gold/5 p-8 rounded-[20px] border border-colonial-border">
-                <div className="text-5xl font-bold text-colonial-navy mb-2">{teamCounter.displayValue}</div>
-                <div className="text-colonial-gray">Expert Team Members</div>
+
+              <div>
+                <h3 className="text-xl font-bold text-colonial-navy mb-2">
+                  Nationwide engineering support. Remote friendly
+                </h3>
+                <p className="text-base text-colonial-gray leading-relaxed">
+                  Land development documentation and analysis, including survey data post-processing, plan set support, traffic impact support, turn lane warrant evaluations, and parking demand studies.
+                </p>
               </div>
-              <div ref={yearsCounter.ref} className="bg-colonial-purple/5 p-8 rounded-[20px] border border-colonial-border">
-                <div className="text-5xl font-bold text-colonial-navy mb-2">{yearsCounter.displayValue}</div>
-                <div className="text-colonial-gray">Years Experience</div>
-              </div>
-              <div ref={satisfactionCounter.ref} className="bg-colonial-green/5 p-8 rounded-[20px] border border-colonial-border">
-                <div className="text-5xl font-bold text-colonial-navy mb-2">{satisfactionCounter.displayValue}</div>
-                <div className="text-colonial-gray">Client Satisfaction</div>
+
+              <div>
+                <h3 className="text-xl font-bold text-colonial-navy mb-2">
+                  Professional responsibility
+                </h3>
+                <p className="text-base text-colonial-gray leading-relaxed">
+                  Our work is supported by licensed professional engineers. When sealing is required, plans and calculations are prepared and sealed by appropriately licensed professionals.
+                </p>
               </div>
             </div>
           </div>
@@ -400,7 +403,7 @@ export default function About() {
       {/* Footer */}
       <footer className="py-8 bg-[#1a252f]">
         <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>&copy; 2024 Colonial Consultants. All rights reserved.</p>
+          <p>&copy; 2026 Colonial Consultants. All rights reserved.</p>
         </div>
       </footer>
     </div>

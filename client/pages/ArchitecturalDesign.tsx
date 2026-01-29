@@ -125,16 +125,7 @@ export default function ArchitecturalDesign() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#2C3E50] text-white py-8 md:py-12">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-          <div className="text-center">
-            <p className="text-white/70">
-              © 2024 Colonial Consultants. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+
     </div>
   );
 }

@@ -21,6 +21,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.978.0",
+    "@aws-sdk/lib-dynamodb": "^3.978.0",
     "@vercel/node": "^3.2.22",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",

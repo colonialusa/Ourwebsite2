@@ -202,7 +202,7 @@ export default function SurveyFeasibility() {
               to="/contact"
               className="px-8 py-4 bg-colonial-navy text-white rounded-lg font-semibold hover:bg-colonial-navy/90 transition-colors"
             >
-              Get a Quote
+              Get Started →
             </Link>
             <Link
               to="/services"

@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
@@ -16,7 +17,6 @@ import RoadDesign from "./pages/RoadDesign";
 import SurveyFeasibility from "./pages/SurveyFeasibility";
 import SurveyPostProcessing from "./pages/SurveyPostProcessing";
 import OnsiteServices from "./pages/OnsiteServices";
-import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -41,10 +41,10 @@ const App = () => (
           v7_relativeSplatPath: true
         }}
       >
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/services/:id" element={<ServiceDetail />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectCaseStudy />} />
           <Route path="/about" element={<About />} />

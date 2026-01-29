@@ -56,7 +56,7 @@ export default function Navigation() {
       />
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 lg:px-12 xl:px-[50px] pt-4 md:pt-6 lg:pt-[30px]">
+      <header className="absolute top-0 left-0 right-0 z-[200] px-4 md:px-8 lg:px-12 xl:px-[50px] pt-4 md:pt-6 lg:pt-[30px]">
         <div className="mx-auto max-w-[1820px] h-[60px] md:h-[70px] lg:h-[80px] rounded-[30px] md:rounded-[35px] lg:rounded-[40px] border border-colonial-border bg-white flex items-center justify-between px-4 md:px-6 lg:px-8 shadow-lg">
           {/* Logo */}
           <div className="flex items-center">
@@ -75,8 +75,8 @@ export default function Navigation() {
               to="/" 
               className={`px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg font-semibold text-sm xl:text-[15px] transition-colors ${
                 isActive('/') 
-                  ? 'bg-colonial-gold/10 text-colonial-navy' 
-                  : 'text-colonial-gray hover:bg-gray-50'
+                  ? 'bg-colonial-gold/10 text-black' 
+                  : 'text-black hover:bg-gray-50'
               }`}
             >
               Home
@@ -85,15 +85,15 @@ export default function Navigation() {
               to="/services"
               className={`px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg font-semibold text-sm xl:text-[15px] transition-colors ${
                 isActive('/services') || location.pathname.startsWith('/services/')
-                  ? 'bg-colonial-gold/10 text-colonial-navy' 
-                  : 'text-colonial-gray hover:bg-gray-50'
+                  ? 'bg-colonial-gold/10 text-black' 
+                  : 'text-black hover:bg-gray-50'
               }`}
             >
               Services
             </Link>
             <button 
               onClick={() => setIsExpertiseModalOpen(true)}
-              className="px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg text-colonial-gray font-normal text-sm xl:text-[15px] hover:bg-gray-50 transition-colors"
+              className="px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg text-black font-semibold text-sm xl:text-[15px] hover:bg-gray-50 transition-colors"
             >
               Expertise
             </button>
@@ -101,8 +101,8 @@ export default function Navigation() {
               to="/projects" 
               className={`px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg font-semibold text-sm xl:text-[15px] transition-colors ${
                 isActive('/projects') 
-                  ? 'bg-colonial-gold/10 text-colonial-navy' 
-                  : 'text-colonial-gray hover:bg-gray-50'
+                  ? 'bg-colonial-gold/10 text-black' 
+                  : 'text-black hover:bg-gray-50'
               }`}
             >
               Projects
@@ -111,15 +111,15 @@ export default function Navigation() {
               to="/about" 
               className={`px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg font-semibold text-sm xl:text-[15px] transition-colors ${
                 isActive('/about') 
-                  ? 'bg-colonial-gold/10 text-colonial-navy' 
-                  : 'text-colonial-gray hover:bg-gray-50'
+                  ? 'bg-colonial-gold/10 text-black' 
+                  : 'text-black hover:bg-gray-50'
               }`}
             >
               About
             </Link>
             <button
               onClick={handleContactClick}
-              className="px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg text-colonial-gray font-normal text-sm xl:text-[15px] hover:bg-gray-50 transition-colors"
+              className="px-4 xl:px-6 py-2.5 xl:py-3 rounded-lg text-black font-semibold text-sm xl:text-[15px] hover:bg-gray-50 transition-colors"
             >
               Contact
             </button>
@@ -136,13 +136,7 @@ export default function Navigation() {
             <span className={`w-6 h-0.5 bg-colonial-navy transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
           </button>
 
-          {/* Get Quote Button - Hidden on small mobile */}
-          <button
-            onClick={handleContactClick}
-            className="hidden sm:block px-6 md:px-8 lg:px-10 xl:px-[45px] py-3 md:py-3.5 lg:py-4 rounded-[20px] md:rounded-[22px] lg:rounded-[25px] bg-colonial-navy text-colonial-gold font-semibold text-sm md:text-[15px] hover:bg-colonial-navy/90 transition-colors"
-          >
-            Get Quote
-          </button>
+
         </div>
       </header>
 

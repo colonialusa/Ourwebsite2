@@ -440,7 +440,7 @@ export default function Services() {
             Get in touch with our team to discuss your engineering and design needs
           </p>
           <Link
-            to="/#contact"
+            to="/contact"
             className="inline-block px-10 py-4 rounded-[35px] bg-colonial-gold text-colonial-navy font-semibold text-lg hover:bg-colonial-gold/90 transition-colors"
           >
             Contact Us Today →

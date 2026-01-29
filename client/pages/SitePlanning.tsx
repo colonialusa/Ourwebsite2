@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import { Link } from "react-router-dom";
 
 export default function SitePlanning() {
   return (
@@ -8,28 +9,23 @@ export default function SitePlanning() {
       {/* Hero Section */}
       <section className="relative bg-colonial-navy pt-[100px] md:pt-[120px] lg:pt-[140px] pb-16 md:pb-20 lg:pb-24 overflow-hidden">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-          <div className="max-w-3xl space-y-6 md:space-y-8">
-            {/* Main Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-[48px] font-bold text-colonial-gold">
-              SITE PLANNING
-            </h1>
+          <div className="flex justify-center">
+            <div className="max-w-3xl space-y-6 md:space-y-8 text-center">
+              {/* Main Title */}
+              <h1 className="text-4xl md:text-5xl lg:text-[48px] font-bold text-colonial-gold">
+                SITE PLANNING
+              </h1>
 
-            {/* Subtitle */}
-            <h2 className="text-2xl md:text-3xl lg:text-[32px] font-semibold text-white">
-              Strategic Planning & Analysis
-            </h2>
+              {/* Subtitle */}
+              <h2 className="text-2xl md:text-3xl lg:text-[32px] font-semibold text-white">
+                Strategic Planning & Analysis
+              </h2>
 
-            {/* Description */}
-            <p className="text-base md:text-lg lg:text-[18px] text-[#E8E8E8] leading-relaxed max-w-2xl">
-              Comprehensive site analysis, feasibility studies, and master planning
-              for optimal land utilization and project success.
-            </p>
-
-            {/* CTA Button */}
-            <div className="pt-4 md:pt-6">
-              <button className="px-10 md:px-12 lg:px-[40px] py-4 md:py-4.5 lg:py-5 rounded-[25px] md:rounded-[28px] lg:rounded-[30px] bg-colonial-gold text-colonial-navy font-semibold text-base md:text-[16px] hover:bg-colonial-gold/90 transition-colors">
-                Start Your Project →
-              </button>
+              {/* Description */}
+              <p className="text-base md:text-lg lg:text-[18px] text-[#E8E8E8] leading-relaxed">
+                Comprehensive site analysis, feasibility studies, and master planning
+                for optimal land utilization and project success.
+              </p>
             </div>
           </div>
         </div>
@@ -71,7 +67,7 @@ export default function SitePlanning() {
               </p>
             </div>
 
-            <div className="mb-12">
+            <div>
               <h3 className="text-2xl font-bold text-colonial-navy mb-6">Regulatory Compliance & Permitting Support</h3>
               <p className="text-base text-colonial-gray mb-4 leading-relaxed">
                 Navigating complex regulatory requirements demands comprehensive knowledge of zoning ordinances, subdivision regulations, environmental protection laws, and building codes. Our planning team maintains current expertise in local, state, and federal regulations affecting site development. We conduct detailed zoning analysis to verify permitted uses, density calculations, setback requirements, and parking standards. Our designs comply with Americans with Disabilities Act (ADA) requirements, stormwater management regulations, environmental protection standards, and all applicable codes.
@@ -85,7 +81,7 @@ export default function SitePlanning() {
       </section>
 
       {/* Our Site Planning Services Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-white">
+      <section className="pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           {/* Section Header */}
           <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-colonial-navy text-center mb-10 md:mb-14 lg:mb-16">
@@ -93,7 +89,7 @@ export default function SitePlanning() {
           </h2>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
             {/* Feasibility Studies */}
             <div className="p-6 md:p-7 lg:p-[30px] rounded-[12px] md:rounded-[14px] lg:rounded-[15px] bg-[#F5F5F5] space-y-4 md:space-y-5 lg:space-y-6">
               <div className="text-4xl md:text-[48px]">📊</div>
@@ -128,7 +124,7 @@ export default function SitePlanning() {
             </div>
 
             {/* Regulatory Compliance */}
-            <div className="p-6 md:p-7 lg:p-[30px] rounded-[12px] md:rounded-[14px] lg:rounded-[15px] bg-[#F5F5F5] space-y-4 md:space-y-5 lg:space-y-6 md:col-start-2 lg:col-start-2">
+            <div className="p-6 md:p-7 lg:p-[30px] rounded-[12px] md:rounded-[14px] lg:rounded-[15px] bg-[#F5F5F5] space-y-4 md:space-y-5 lg:space-y-6">
               <div className="text-4xl md:text-[48px]">⚖️</div>
               <h3 className="text-lg md:text-xl lg:text-[20px] font-semibold text-colonial-navy">
                 Regulatory Compliance
@@ -255,12 +251,12 @@ export default function SitePlanning() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-[30px] justify-center pt-4 md:pt-6">
-              <button className="px-8 md:px-10 lg:px-[50px] py-4 md:py-5 lg:py-6 rounded-[28px] md:rounded-[32px] lg:rounded-[35px] bg-colonial-gold text-colonial-navy font-semibold text-base md:text-lg lg:text-[18px] hover:bg-colonial-gold/90 transition-colors">
-                Contact Us Today
-              </button>
-              <button className="px-8 md:px-10 lg:px-[40px] py-4 md:py-5 lg:py-6 rounded-[28px] md:rounded-[32px] lg:rounded-[35px] border-2 border-white text-white font-semibold text-base md:text-lg lg:text-[18px] hover:bg-white/10 transition-colors">
-                📅 Schedule Meeting
-              </button>
+              <Link to="/contact" className="px-8 md:px-10 lg:px-[50px] py-4 md:py-5 lg:py-6 rounded-[28px] md:rounded-[32px] lg:rounded-[35px] bg-colonial-gold text-colonial-navy font-semibold text-base md:text-lg lg:text-[18px] hover:bg-colonial-gold/90 transition-colors text-center">
+                Get Started →
+              </Link>
+              <Link to="/services" className="px-8 md:px-10 lg:px-[40px] py-4 md:py-5 lg:py-6 rounded-[28px] md:rounded-[32px] lg:rounded-[35px] border-2 border-white text-white font-semibold text-base md:text-lg lg:text-[18px] hover:bg-white/10 transition-colors text-center">
+                View All Services
+              </Link>
             </div>
           </div>
         </div>

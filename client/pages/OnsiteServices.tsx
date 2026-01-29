@@ -246,20 +246,20 @@ export default function OnsiteServices() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-colonial-gold">
+      <section className="py-20 bg-colonial-navy">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h2 className="text-4xl font-bold text-colonial-navy mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             Need Onsite Support?
           </h2>
-          <p className="text-xl text-colonial-navy/80 mb-8">
+          <p className="text-xl text-white/80 mb-8">
             Our field teams are ready to support your construction project
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="px-8 py-4 bg-colonial-navy text-white rounded-lg font-semibold hover:bg-colonial-navy/90 transition-colors"
+              className="px-8 py-4 bg-colonial-gold text-colonial-navy rounded-lg font-semibold hover:bg-colonial-gold/90 transition-colors"
             >
-              Request Field Services
+              Get Started →
             </Link>
             <Link
               to="/services"

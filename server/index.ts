@@ -9,8 +9,22 @@ import {
   handleDeleteTestimonial
 } from "./routes/testimonials";
 
-// Use Vercel-compatible admin routes (in-memory data store)
-import {
+// Check if we should use DynamoDB (for AWS deployment)
+const USE_DYNAMODB = process.env.USE_DYNAMODB === "true";
+
+// Conditionally import routes based on storage backend
+let adminRoutes: any;
+if (USE_DYNAMODB) {
+  // Use DynamoDB routes for AWS deployment
+  adminRoutes = require("./routes/admin-dynamodb");
+  console.log("📦 Using DynamoDB for data storage");
+} else {
+  // Use in-memory/Vercel routes for local development
+  adminRoutes = require("./routes/admin-vercel");
+  console.log("💾 Using in-memory storage");
+}
+
+const {
   handleLogin,
   handleStats,
   handleGetProjects,
@@ -21,14 +35,16 @@ import {
   handleCreateService,
   handleUpdateService,
   handleDeleteService,
-  handleContactSubmission,
   handleGetContacts,
   handleGetTeam,
   handleCreateTeamMember,
   handleUpdateTeamMember,
   handleDeleteTeamMember,
   verifyToken
-} from "./routes/admin-vercel";
+} = adminRoutes;
+
+// Contact submission handler (only in Vercel routes)
+const handleContactSubmission = adminRoutes.handleContactSubmission || adminRoutes.handleCreateContact;
 
 export function createServer() {
   const app = express();

@@ -169,42 +169,43 @@ export default function Index() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[100svh] pt-[40px] sm:pt-[50px] md:pt-[60px] lg:pt-[70px] pb-8 sm:pb-12 md:pb-16 lg:pb-20 overflow-hidden">
+      <section className="relative min-h-[100svh] pt-[40px] sm:pt-[50px] md:pt-[60px] lg:pt-[70px] pb-8 sm:pb-12 md:pb-16 lg:pb-20 overflow-hidden bg-gray-100">
         {/* Background Image */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0 w-full h-full bg-gray-100">
           <img 
-            src="/video/image122.png" 
+            src="/video/Colonical_background_image.jpeg" 
             alt="Background"
             loading="eager"
             fetchPriority="high"
-            className="w-full h-full object-cover object-center"
+            decoding="async"
+            className="w-full h-full object-cover object-[65%_top] sm:object-[60%_center] md:object-center lg:object-center will-change-transform"
           />
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center pt-16 sm:pt-20 md:pt-24 lg:pt-28">
             {/* Hero Content */}
-            <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-10 bg-black/50 backdrop-blur-sm p-6 sm:p-8 md:p-10 rounded-2xl">
               {/* Badge */}
-              <div className="inline-flex items-center px-4 sm:px-5 md:px-6 lg:px-[25px] py-2 sm:py-2.5 md:py-3 rounded-[14px] sm:rounded-[16px] md:rounded-[18px] lg:rounded-[20px] border border-colonial-gold bg-colonial-gold/10">
-                <span className="text-black font-semibold text-[11px] sm:text-xs md:text-[13px]">
+              <div className="inline-flex items-center px-4 sm:px-5 md:px-6 lg:px-[25px] py-2 sm:py-2.5 md:py-3 rounded-[14px] sm:rounded-[16px] md:rounded-[18px] lg:rounded-[20px] border border-colonial-gold bg-colonial-gold/20">
+                <span className="text-white font-semibold text-[11px] sm:text-xs md:text-[13px]">
                   ✦ 15+ Years Excellence
                 </span>
               </div>
 
               {/* Main Heading */}
               <div className="space-y-2 md:space-y-3">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-black leading-tight md:leading-[1.1] lg:leading-[62px]">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-white leading-tight md:leading-[1.1] lg:leading-[62px]">
                   Engineering Excellence
                 </h1>
                 <div className="w-[100px] sm:w-[140px] md:w-[180px] lg:w-[200px] h-[8px] sm:h-[10px] md:h-[12px] lg:h-[14px] bg-colonial-gold rounded-[3px] shadow-lg" />
-                <h2 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-semibold text-black">
+                <h2 className="text-base sm:text-lg md:text-xl lg:text-[22px] font-semibold text-colonial-gold">
                   Building the Future Since 2010
                 </h2>
               </div>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm md:text-base lg:text-[16px] text-black leading-relaxed md:leading-[24px] lg:leading-[26px] max-w-xl">
+              <p className="text-xs sm:text-sm md:text-base lg:text-[16px] text-gray-200 leading-relaxed md:leading-[24px] lg:leading-[26px] max-w-xl">
                 We don't just design solutions, we redefine possibilities. Our passionate, innovative teams partner with clients to turn challenges into bold, practical outcomes through cutting-edge BIM technology and precision engineering.
               </p>
 
@@ -213,31 +214,10 @@ export default function Index() {
                 <a href="#contact" className="px-5 sm:px-6 md:px-8 lg:px-[45px] py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-[20px] sm:rounded-[22px] md:rounded-[26px] lg:rounded-[28px] bg-colonial-gold text-colonial-navy font-semibold text-xs sm:text-sm md:text-base lg:text-[15px] hover:bg-colonial-gold/90 transition-colors text-center shadow-xl">
                   Get Started →
                 </a>
-                <button 
-                  onClick={() => {
-                    const element = document.getElementById('site-visit');
-                    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }}
-                  className="px-5 sm:px-6 md:px-8 lg:px-[40px] py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-[20px] sm:rounded-[22px] md:rounded-[26px] lg:rounded-[28px] border-2 border-colonial-navy bg-white text-colonial-navy font-semibold text-xs sm:text-sm md:text-base lg:text-[15px] hover:bg-colonial-navy hover:text-white transition-colors"
-                >
-                  ▶ Watch Demo
-                </button>
               </div>
             </div>
 
-            {/* 3D Building Model */}
-            <div className="h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] mt-6 sm:mt-8 lg:mt-0 hidden sm:block">
-              <Suspense fallback={
-                <div className="w-full h-full flex items-center justify-center bg-gray-50 rounded-lg">
-                  <div className="text-center">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 border-4 border-colonial-gold border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                    <p className="text-colonial-gray text-xs sm:text-sm">Loading 3D Model...</p>
-                  </div>
-                </div>
-              }>
-                <BuildingModel />
-              </Suspense>
-            </div>
+
           </div>
 
           {/* Quick Stats */}
@@ -291,128 +271,41 @@ export default function Index() {
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {services.length > 0 ? (
-              services.map((service) => (
-                <Link 
-                  key={service.id}
-                  to={`/services/${service.id}`}
-                  className="group p-6 md:p-7 lg:p-[30px] rounded-[20px] md:rounded-[22px] lg:rounded-[24px] border border-[#EBEBEB] bg-white hover:shadow-lg transition-all block"
-                >
-                  <div className="inline-flex p-4 md:p-[17px] rounded-[16px] md:rounded-[18px] bg-colonial-blue/10 mb-6 md:mb-8">
-                    <div className="text-3xl md:text-[36px]">{service.icon}</div>
-                  </div>
-                  <h3 className="text-xl md:text-2xl lg:text-[24px] font-bold text-colonial-navy mb-3 md:mb-4 lg:mb-5">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm md:text-[15px] text-colonial-gray leading-relaxed md:leading-[24px] mb-6 md:mb-8">
-                    {service.description}
-                  </p>
-                  <div className="text-colonial-blue text-xl md:text-2xl font-bold group-hover:translate-x-1 transition-transform">
-                    →
-                  </div>
-                </Link>
-              ))
-            ) : (
-              // Fallback hardcoded services
-              <>
-            {/* Site Planning */}
-            <Link to="/site-planning" className="group p-6 md:p-7 lg:p-[30px] rounded-[20px] md:rounded-[22px] lg:rounded-[24px] border border-[#EBEBEB] bg-colonial-blue/8 hover:shadow-lg transition-all block">
-              <div className="inline-flex p-4 md:p-[17px] rounded-[16px] md:rounded-[18px] bg-white mb-6 md:mb-8">
-                <div className="text-3xl md:text-[36px]">📐</div>
-              </div>
-              <h3 className="text-xl md:text-2xl lg:text-[24px] font-bold text-colonial-navy mb-3 md:mb-4 lg:mb-5">
-                Site Planning
-              </h3>
-              <p className="text-sm md:text-[15px] text-colonial-gray leading-relaxed md:leading-[24px] mb-6 md:mb-8">
-                Strategic site analysis and master planning for optimal land utilization
-              </p>
-              <div className="text-colonial-blue text-xl md:text-2xl font-bold group-hover:translate-x-1 transition-transform">
-                →
-              </div>
-            </Link>
-
-            {/* Architectural Design */}
-            <Link to="/architectural-design" className="group p-6 md:p-7 lg:p-[30px] rounded-[20px] md:rounded-[22px] lg:rounded-[24px] border border-[#EBEBEB] bg-colonial-purple/8 hover:shadow-lg transition-all block">
-              <div className="inline-flex p-4 md:p-[17px] rounded-[16px] md:rounded-[18px] bg-white mb-6 md:mb-8">
-                <div className="text-3xl md:text-[36px]">🏛️</div>
-              </div>
-              <h3 className="text-xl md:text-2xl lg:text-[24px] font-bold text-colonial-navy mb-3 md:mb-4 lg:mb-5">
-                Architectural Design
-              </h3>
-              <p className="text-sm md:text-[15px] text-colonial-gray leading-relaxed md:leading-[24px] mb-6 md:mb-8">
-                Innovative architectural & structural design solutions
-              </p>
-              <div className="text-colonial-purple text-xl md:text-2xl font-bold group-hover:translate-x-1 transition-transform">
-                →
-              </div>
-            </Link>
-
-            {/* Road Design */}
-            <Link to="/road-design" className="group p-6 md:p-7 lg:p-[30px] rounded-[20px] md:rounded-[22px] lg:rounded-[24px] border border-[#EBEBEB] bg-colonial-orange/8 hover:shadow-lg transition-all block">
-              <div className="inline-flex p-4 md:p-[17px] rounded-[16px] md:rounded-[18px] bg-white mb-6 md:mb-8">
-                <div className="text-3xl md:text-[36px]">🛣️</div>
-              </div>
-              <h3 className="text-xl md:text-2xl lg:text-[24px] font-bold text-colonial-navy mb-3 md:mb-4 lg:mb-5">
-                Road Design
-              </h3>
-              <p className="text-sm md:text-[15px] text-colonial-gray leading-relaxed md:leading-[24px] mb-6 md:mb-8">
-                Advanced highway & urban infrastructure design
-              </p>
-              <div className="text-colonial-orange text-xl md:text-2xl font-bold group-hover:translate-x-1 transition-transform">
-                →
-              </div>
-            </Link>
-
-            {/* BIM Services */}
-            <Link to="/bim-services" className="group p-6 md:p-7 lg:p-[30px] rounded-[20px] md:rounded-[22px] lg:rounded-[24px] border border-[#EBEBEB] bg-colonial-green/8 hover:shadow-lg transition-all block">
-              <div className="inline-flex p-4 md:p-[17px] rounded-[16px] md:rounded-[18px] bg-white mb-6 md:mb-8">
-                <div className="text-3xl md:text-[36px]">🏗️</div>
-              </div>
-              <h3 className="text-xl md:text-2xl lg:text-[24px] font-bold text-colonial-navy mb-3 md:mb-4 lg:mb-5">
-                BIM Services
-              </h3>
-              <p className="text-sm md:text-[15px] text-colonial-gray leading-relaxed md:leading-[24px] mb-6 md:mb-8">
-                Cutting-edge 3D modeling & clash detection
-              </p>
-              <div className="text-colonial-green text-xl md:text-2xl font-bold group-hover:translate-x-1 transition-transform">
-                →
-              </div>
-            </Link>
-
-            {/* MEP with BIM */}
-            <Link to="/mep-services" className="group p-6 md:p-7 lg:p-[30px] rounded-[20px] md:rounded-[22px] lg:rounded-[24px] border border-[#EBEBEB] bg-colonial-red/8 hover:shadow-lg transition-all block">
-              <div className="inline-flex p-4 md:p-[17px] rounded-[16px] md:rounded-[18px] bg-white mb-6 md:mb-8">
-                <div className="text-3xl md:text-[36px]">⚡</div>
-              </div>
-              <h3 className="text-xl md:text-2xl lg:text-[24px] font-bold text-colonial-navy mb-3 md:mb-4 lg:mb-5">
-                MEP with BIM
-              </h3>
-              <p className="text-sm md:text-[15px] text-colonial-gray leading-relaxed md:leading-[24px] mb-6 md:mb-8">
-                Integrated mechanical, electrical & plumbing coordination
-              </p>
-              <div className="text-colonial-red text-xl md:text-2xl font-bold group-hover:translate-x-1 transition-transform">
-                →
-              </div>
-            </Link>
-
-            {/* BIM Consulting */}
-            <Link to="/services" className="group p-6 md:p-7 lg:p-[30px] rounded-[20px] md:rounded-[22px] lg:rounded-[24px] border border-[#EBEBEB] bg-colonial-navy/8 hover:shadow-lg transition-all block">
-              <div className="inline-flex p-4 md:p-[17px] rounded-[16px] md:rounded-[18px] bg-white mb-6 md:mb-8">
-                <div className="text-3xl md:text-[36px]">🎯</div>
-              </div>
-              <h3 className="text-xl md:text-2xl lg:text-[24px] font-bold text-colonial-navy mb-3 md:mb-4 lg:mb-5">
-                BIM Consulting
-              </h3>
-              <p className="text-sm md:text-[15px] text-colonial-gray leading-relaxed md:leading-[24px] mb-6 md:mb-8">
-                Expert guidance for BIM implementation & workflows
-              </p>
-              <div className="text-colonial-navy text-xl md:text-2xl font-bold group-hover:translate-x-1 transition-transform">
-                →
-              </div>
-            </Link>
-            </>
-            )}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
+            {services.map((service) => {
+              // Map service IDs to their specific page routes
+              const serviceRoutes: Record<string, string> = {
+                '1736665300001': '/survey-feasibility',
+                '1736665300002': '/site-planning',
+                '1736665300003': '/road-design',
+                '1736665300004': '/survey-post-processing',
+                '1736665300005': '/bim-services',
+                '1736665300006': '/onsite-services'
+              };
+              
+              const servicePath = serviceRoutes[service.id] || `/services/${service.id}`;
+              
+              return (
+              <Link 
+                key={service.id}
+                to={servicePath}
+                className="group p-3 md:p-5 lg:p-6 rounded-[12px] md:rounded-[18px] lg:rounded-[20px] border border-[#EBEBEB] bg-white hover:shadow-lg transition-all block"
+              >
+                <div className="inline-flex p-2 md:p-3.5 rounded-[10px] md:rounded-[14px] bg-colonial-blue/10 mb-3 md:mb-5">
+                  <div className="text-xl md:text-[28px]">{service.icon}</div>
+                </div>
+                <h3 className="text-sm md:text-lg lg:text-[18px] font-bold text-colonial-navy mb-2 md:mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-xs md:text-[13px] text-colonial-gray leading-relaxed md:leading-[20px] mb-3 md:mb-5">
+                  {service.description}
+                </p>
+                <div className="text-colonial-blue text-base md:text-xl font-bold group-hover:translate-x-1 transition-transform">
+                  →
+                </div>
+              </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -632,46 +525,46 @@ export default function Index() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-20 lg:py-24 bg-colonial-light-bg">
+      <section className="py-12 md:py-16 lg:py-20 bg-colonial-light-bg">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-          <div className="text-center mb-12 lg:mb-16">
-            <div className="text-colonial-blue font-bold text-sm tracking-[2px] mb-4">TESTIMONIALS</div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-colonial-navy mb-6">
+          <div className="text-center mb-8 lg:mb-12">
+            <div className="text-colonial-blue font-bold text-xs md:text-sm tracking-[2px] mb-3">TESTIMONIALS</div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-colonial-navy mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-lg text-colonial-gray max-w-3xl mx-auto">
+            <p className="text-sm md:text-base text-colonial-gray max-w-3xl mx-auto">
               Trusted by leading developers, architects, and engineering firms
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-white p-8 md:p-10 rounded-[24px] shadow-md hover:shadow-xl transition-shadow">
+              <div key={testimonial.id} className="bg-white p-5 md:p-6 rounded-[16px] shadow-md hover:shadow-xl transition-shadow">
                 {/* Rating Stars */}
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-0.5 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-colonial-gold text-xl">★</span>
+                    <span key={i} className="text-colonial-gold text-base">★</span>
                   ))}
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-colonial-gray text-lg leading-relaxed mb-8 italic">
+                <p className="text-colonial-gray text-xs md:text-sm leading-relaxed mb-4 italic">
                   "{testimonial.testimonial}"
                 </p>
 
                 {/* Client Info */}
-                <div className="border-t border-gray-200 pt-6">
-                  <div className="font-bold text-colonial-navy text-lg mb-1">
+                <div className="border-t border-gray-200 pt-4">
+                  <div className="font-bold text-colonial-navy text-sm md:text-base mb-0.5">
                     {testimonial.name}
                   </div>
-                  <div className="text-colonial-blue text-sm mb-1">
+                  <div className="text-colonial-blue text-xs mb-0.5">
                     {testimonial.position}
                   </div>
-                  <div className="text-colonial-gray text-sm">
+                  <div className="text-colonial-gray text-xs">
                     {testimonial.company}
                   </div>
                   {testimonial.project && (
-                    <div className="text-colonial-gold text-sm mt-2">
+                    <div className="text-colonial-gold text-xs mt-1">
                       Project: {testimonial.project}
                     </div>
                   )}
@@ -946,7 +839,7 @@ export default function Index() {
               
               {/* Floating Stats Card */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-[20px] p-6 shadow-xl border border-colonial-border">
-                <div className="text-3xl font-bold text-colonial-navy mb-1">500+</div>
+                <div className="text-3xl font-bold text-colonial-navy mb-1">40+</div>
                 <div className="text-sm text-colonial-gray">Projects Completed</div>
               </div>
 
@@ -990,9 +883,6 @@ export default function Index() {
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 lg:gap-[30px] justify-center pt-4 md:pt-6">
               <a href="#contact" className="px-8 md:px-10 lg:px-[50px] py-4 md:py-5 lg:py-6 rounded-[28px] md:rounded-[32px] lg:rounded-[35px] bg-colonial-gold text-colonial-navy font-semibold text-base md:text-lg lg:text-[18px] hover:bg-colonial-gold/90 transition-colors">
                 Contact Us Today
-              </a>
-              <a href="#contact" className="px-8 md:px-10 lg:px-[40px] py-4 md:py-5 lg:py-6 rounded-[28px] md:rounded-[32px] lg:rounded-[35px] border-2 border-white text-white font-semibold text-base md:text-lg lg:text-[18px] hover:bg-white/10 transition-colors">
-                📅 Schedule Meeting
               </a>
             </div>
           </div>
@@ -1164,10 +1054,10 @@ export default function Index() {
               <h4 className="text-white font-semibold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 <li><Link to="/" className="text-gray-400 hover:text-colonial-gold transition-colors">Home</Link></li>
-                <li><button onClick={() => setIsExpertiseModalOpen(true)} className="text-gray-400 hover:text-colonial-gold transition-colors">Services</button></li>
+                <li><Link to="/services" className="text-gray-400 hover:text-colonial-gold transition-colors">Services</Link></li>
                 <li><Link to="/projects" className="text-gray-400 hover:text-colonial-gold transition-colors">Projects</Link></li>
                 <li><Link to="/about" className="text-gray-400 hover:text-colonial-gold transition-colors">About</Link></li>
-                <li><a href="#contact" className="text-gray-400 hover:text-colonial-gold transition-colors">Contact</a></li>
+                <li><Link to="/contact" className="text-gray-400 hover:text-colonial-gold transition-colors">Contact</Link></li>
               </ul>
             </div>
 
@@ -1175,10 +1065,10 @@ export default function Index() {
             <div>
               <h4 className="text-white font-semibold text-lg mb-4">Contact</h4>
               <ul className="space-y-3 text-gray-400 text-sm">
-                <li>📍 123 Engineering Plaza, Suite 400</li>
-                <li>📧 info@colonialconsultants.com</li>
-                <li>📞 +1 (555) 123-4567</li>
-                <li>🕒 Mon-Fri: 9AM - 6PM EST</li>
+                <li>📍 Williamsburg VA</li>
+                <li>📧 aditi@colonialconsultantsusa.com</li>
+                <li>📞 +1 757-880-9141</li>
+                <li>🕒 Mon-Fri: 8 am to 4:30 pm EST</li>
               </ul>
             </div>
           </div>
@@ -1188,11 +1078,6 @@ export default function Index() {
               <p className="text-gray-400 text-sm">
                 © 2026 Colonial Consultants. All rights reserved.
               </p>
-              <div className="flex gap-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-colonial-gold transition-colors">Privacy Policy</a>
-                <a href="#" className="text-gray-400 hover:text-colonial-gold transition-colors">Terms of Service</a>
-                <a href="#" className="text-gray-400 hover:text-colonial-gold transition-colors">Sitemap</a>
-              </div>
             </div>
           </div>
         </div>

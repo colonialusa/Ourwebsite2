@@ -13,7 +13,6 @@ interface Project {
 }
 
 export default function Projects() {
-  const [selectedFilter, setSelectedFilter] = useState("All");
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -30,13 +29,6 @@ export default function Projects() {
         setLoading(false);
       });
   }, []);
-
-  // Get unique categories from projects
-  const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
-
-  const filteredProjects = selectedFilter === "All" 
-    ? projects 
-    : projects.filter(p => p.category === selectedFilter);
 
   return (
     <div className="min-h-screen bg-white">
@@ -68,27 +60,6 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-8 bg-white border-b border-colonial-border sticky top-[100px] md:top-[110px] lg:top-[120px] z-40">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setSelectedFilter(filter)}
-                className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all ${
-                  selectedFilter === filter
-                    ? "bg-colonial-navy text-colonial-gold"
-                    : "bg-colonial-light-bg text-colonial-gray hover:bg-colonial-navy/10"
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Projects Grid */}
       <section className="py-16 md:py-20 lg:py-24 bg-colonial-light-bg">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
@@ -96,13 +67,13 @@ export default function Projects() {
             <div className="text-center py-12">
               <p className="text-xl text-colonial-gray">Loading projects...</p>
             </div>
-          ) : filteredProjects.length === 0 ? (
+          ) : projects.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-xl text-colonial-gray">No projects found. Add projects from the admin panel.</p>
             </div>
           ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
+            {projects.map((project) => (
               <div 
                 key={project.id}
                 className="group bg-white rounded-[24px] overflow-hidden border border-colonial-border hover:shadow-2xl transition-all duration-300"
@@ -171,11 +142,11 @@ export default function Projects() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-8 bg-colonial-blue/5 rounded-[20px] border border-colonial-border">
-              <div className="text-5xl font-bold text-colonial-navy mb-2">500+</div>
+              <div className="text-5xl font-bold text-colonial-navy mb-2">40+</div>
               <div className="text-colonial-gray">Projects Delivered</div>
             </div>
             <div className="text-center p-8 bg-colonial-purple/5 rounded-[20px] border border-colonial-border">
-              <div className="text-5xl font-bold text-colonial-navy mb-2">$2B+</div>
+              <div className="text-5xl font-bold text-colonial-navy mb-2">$10M+</div>
               <div className="text-colonial-gray">Total Project Value</div>
             </div>
             <div className="text-center p-8 bg-colonial-gold/5 rounded-[20px] border border-colonial-border">
@@ -219,7 +190,7 @@ export default function Projects() {
       {/* Footer */}
       <footer className="py-8 bg-[#1a252f]">
         <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>&copy; 2024 Colonial Consultants. All rights reserved.</p>
+          <p>&copy; 2026 Colonial Consultants. All rights reserved.</p>
         </div>
       </footer>
     </div>

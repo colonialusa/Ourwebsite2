@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Link } from "react-router-dom";
+import { Hammer, Map, Database, Layers, Grid3x3 } from "lucide-react";
 
 export default function SurveyPostProcessing() {
   return (
@@ -192,19 +193,24 @@ export default function SurveyPostProcessing() {
               Professional Software & Tools
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-              <div className="bg-white rounded-lg p-4">
+              <div className="bg-white rounded-lg p-4 flex flex-col items-center gap-3">
+                <Hammer className="w-6 h-6 text-colonial-gold" />
                 <p className="font-semibold text-colonial-navy">AutoCAD Civil 3D</p>
               </div>
-              <div className="bg-white rounded-lg p-4">
+              <div className="bg-white rounded-lg p-4 flex flex-col items-center gap-3">
+                <Map className="w-6 h-6 text-colonial-gold" />
                 <p className="font-semibold text-colonial-navy">Trimble Business Center</p>
               </div>
-              <div className="bg-white rounded-lg p-4">
+              <div className="bg-white rounded-lg p-4 flex flex-col items-center gap-3">
+                <Database className="w-6 h-6 text-colonial-gold" />
                 <p className="font-semibold text-colonial-navy">Leica Infinity</p>
               </div>
-              <div className="bg-white rounded-lg p-4">
+              <div className="bg-white rounded-lg p-4 flex flex-col items-center gap-3">
+                <Layers className="w-6 h-6 text-colonial-gold" />
                 <p className="font-semibold text-colonial-navy">Carlson Survey</p>
               </div>
-              <div className="bg-white rounded-lg p-4">
+              <div className="bg-white rounded-lg p-4 flex flex-col items-center gap-3">
+                <Grid3x3 className="w-6 h-6 text-colonial-gold" />
                 <p className="font-semibold text-colonial-navy">MicroStation</p>
               </div>
             </div>
@@ -213,20 +219,20 @@ export default function SurveyPostProcessing() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-colonial-gold">
+      <section className="py-20 bg-colonial-navy">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h2 className="text-4xl font-bold text-colonial-navy mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             Need Professional Survey Processing?
           </h2>
-          <p className="text-xl text-colonial-navy/80 mb-8">
+          <p className="text-xl text-white/80 mb-8">
             Let our experienced team handle your data processing and drafting needs
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="px-8 py-4 bg-colonial-navy text-white rounded-lg font-semibold hover:bg-colonial-navy/90 transition-colors"
+              className="px-8 py-4 bg-colonial-gold text-colonial-navy rounded-lg font-semibold hover:bg-colonial-gold/90 transition-colors"
             >
-              Get Started
+              Get Started →
             </Link>
             <Link
               to="/services"

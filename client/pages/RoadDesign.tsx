@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Link } from "react-router-dom";
+import { Hammer, Map, Route, TrendingUp, Network } from "lucide-react";
 
 export default function RoadDesign() {
   return (
@@ -9,16 +10,18 @@ export default function RoadDesign() {
       {/* Hero Section */}
       <section className="relative bg-[#2C3E50] pt-[140px] md:pt-[160px] lg:pt-[180px] pb-16 md:pb-20 lg:pb-24">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-          <div className="max-w-4xl">
-            {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-[#F4B942] leading-tight mb-6">
-              ROAD DESIGN
-            </h1>
+          <div className="flex justify-center">
+            <div className="max-w-4xl text-center">
+              {/* Main Heading */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-[64px] font-bold text-[#F4B942] leading-tight mb-6">
+                ROAD DESIGN
+              </h1>
 
-            {/* Subtitle */}
-            <h2 className="text-2xl md:text-3xl lg:text-[32px] font-semibold text-white mb-6">
-              Infrastructure Excellence
-            </h2>
+              {/* Subtitle */}
+              <h2 className="text-2xl md:text-3xl lg:text-[32px] font-semibold text-white mb-6">
+                Infrastructure Excellence
+              </h2>
+            </div>
           </div>
         </div>
       </section>
@@ -143,7 +146,7 @@ export default function RoadDesign() {
               </div>
             </div>
 
-            <div className="bg-[#FEF9E7] border-l-4 border-[#F4B942] rounded-r-xl p-8 mb-12">
+            <div className="bg-[#FEF9E7] border-l-4 border-[#F4B942] rounded-r-xl p-8">
               <h3 className="text-2xl font-bold text-[#2C3E50] mb-4">Sustainable Infrastructure Design</h3>
               <p className="text-base text-[#2C3E50]/80 mb-4 leading-relaxed">
                 Sustainability principles guide our approach to infrastructure design, minimizing environmental impacts while delivering long-term value. We incorporate green infrastructure practices including permeable pavements, bioswales, and low-impact development techniques to manage stormwater naturally. Our designs optimize material selection, reduce earthwork quantities, and consider whole life-cycle costs to promote environmental stewardship and fiscal responsibility.
@@ -154,7 +157,7 @@ export default function RoadDesign() {
       </section>
 
       {/* Road Design Services Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-white">
+      <section className="pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           {/* Section Title */}
           <div className="text-center mb-12 md:mb-16">
@@ -256,30 +259,45 @@ export default function RoadDesign() {
           {/* Five Column Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl mx-auto">
             <div className="p-6 md:p-8 rounded-[12px] bg-white border border-gray-200 text-center">
+              <div className="flex justify-center mb-3">
+                <Hammer className="w-8 h-8 text-colonial-gold" />
+              </div>
               <h3 className="text-base md:text-lg font-bold text-[#2C3E50]">
                 AutoCAD Civil 3D
               </h3>
             </div>
 
             <div className="p-6 md:p-8 rounded-[12px] bg-white border border-gray-200 text-center">
+              <div className="flex justify-center mb-3">
+                <Route className="w-8 h-8 text-colonial-gold" />
+              </div>
               <h3 className="text-base md:text-lg font-bold text-[#2C3E50]">
                 Bentley OpenRoads
               </h3>
             </div>
 
             <div className="p-6 md:p-8 rounded-[12px] bg-white border border-gray-200 text-center">
+              <div className="flex justify-center mb-3">
+                <Network className="w-8 h-8 text-colonial-gold" />
+              </div>
               <h3 className="text-base md:text-lg font-bold text-[#2C3E50]">
                 VISSIM
               </h3>
             </div>
 
             <div className="p-6 md:p-8 rounded-[12px] bg-white border border-gray-200 text-center">
+              <div className="flex justify-center mb-3">
+                <TrendingUp className="w-8 h-8 text-colonial-gold" />
+              </div>
               <h3 className="text-base md:text-lg font-bold text-[#2C3E50]">
                 HCS
               </h3>
             </div>
 
             <div className="p-6 md:p-8 rounded-[12px] bg-white border border-gray-200 text-center">
+              <div className="flex justify-center mb-3">
+                <Map className="w-8 h-8 text-colonial-gold" />
+              </div>
               <h3 className="text-base md:text-lg font-bold text-[#2C3E50]">
                 SYNCHRO
               </h3>
@@ -289,37 +307,27 @@ export default function RoadDesign() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-[#2C3E50]">
+      <section className="py-12 md:py-16 lg:py-20 bg-colonial-gold">
         <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
           <div className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-colonial-navy">
               Build Better Roads with Expert Design
             </h2>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-colonial-navy/80 max-w-2xl mx-auto">
               Transform your infrastructure projects with our comprehensive road design expertise and advanced engineering solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link to="/contact" className="px-10 py-5 rounded-[28px] bg-[#F4B942] text-[#2C3E50] font-semibold text-lg hover:bg-[#F4B942]/90 transition-colors">
+              <Link to="/contact" className="px-10 py-5 rounded-[28px] bg-colonial-navy text-white font-semibold text-lg hover:bg-colonial-navy/90 transition-colors">
                 Get Started →
               </Link>
-              <button className="px-10 py-5 rounded-[28px] border-2 border-white text-white font-semibold text-lg hover:bg-white/10 transition-colors">
-                View Projects
-              </button>
+              <Link to="/services" className="px-10 py-5 rounded-[28px] bg-white text-colonial-navy font-semibold text-lg hover:bg-gray-100 transition-colors">
+                View All Services
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#2C3E50] text-white py-8 md:py-12">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-7xl">
-          <div className="text-center">
-            <p className="text-white/70">
-              © 2024 Colonial Consultants. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
